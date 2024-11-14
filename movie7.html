@@ -1,0 +1,244 @@
+<html><head>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chromatic Dreams - NetflixQA</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  .logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .content {
+    padding: 5rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .movie-details {
+    display: flex;
+    gap: 2rem;
+  }
+  .movie-poster {
+    flex: 0 0 300px;
+  }
+  .movie-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .movie-info {
+    flex: 1;
+  }
+  .movie-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .movie-metadata {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .movie-rating, .movie-year, .movie-duration {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+  .movie-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .play-button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .play-button:hover {
+    background-color: #f40612;
+  }
+  .cast-section {
+    margin-top: 2rem;
+  }
+  .cast-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .cast-list {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  .cast-member {
+    flex: 0 0 150px;
+    text-align: center;
+  }
+  .cast-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+  }
+  .cast-name {
+    font-weight: bold;
+  }
+  .cast-character {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  @media (max-width: 768px) {
+    .movie-details {
+      flex-direction: column;
+    }
+    .movie-poster {
+      flex: 0 0 auto;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="location.href='NetflixQA.html'" style="cursor: pointer;">NetflixQA</div>
+  </nav>
+
+  <main class="content">
+    <div class="movie-details">
+      <div class="movie-poster">
+        <img src="img/Chromatic Dreams movie poster.jpg" alt="Chromatic Dreams movie poster">
+      </div>
+      <div class="movie-info">
+        <h1 class="movie-title">Chromatic Dreams</h1>
+        <div class="movie-metadata">
+          <span class="movie-rating">PG</span>
+          <span class="movie-year">2023</span>
+          <span class="movie-duration">1h 52min</span>
+        </div>
+        <p class="movie-description">
+          "Chromatic Dreams" is a visually stunning animated feature that explores the boundless realms of human creativity. Set in a world where imagination manifests as vibrant colors and shapes, the story follows Aria, a young artist struggling to find her unique voice. As she embarks on a mesmerizing journey through surreal landscapes, Aria encounters eccentric characters and faces challenges that push her creative limits. With each obstacle overcome, she unlocks new hues and patterns, gradually painting her way towards self-discovery and artistic fulfillment. This thought-provoking film blends cutting-edge animation techniques with a heartfelt narrative, celebrating the power of art to transform lives and connect souls across the spectrum of human experience.
+        </p>
+        <button class="play-button" onclick="playMovie()">Play</button>
+      </div>
+    </div>
+
+    <section class="cast-section">
+      <h2 class="cast-title">Cast</h2>
+      <div class="cast-list">
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=Z.T." alt="Zoe Taylor">
+          <div class="cast-name">Zoe Taylor</div>
+          <div class="cast-character">Aria (voice)</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=L.C." alt="Liam Chen">
+          <div class="cast-name">Liam Chen</div>
+          <div class="cast-character">Hue (voice)</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=M.P." alt="Maya Patel">
+          <div class="cast-name">Maya Patel</div>
+          <div class="cast-character">Spectrum (voice)</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=J.R." alt="Jack Rodriguez">
+          <div class="cast-name">Jack Rodriguez</div>
+          <div class="cast-character">Canvas (voice)</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=E.K." alt="Emma Kim">
+          <div class="cast-name">Emma Kim</div>
+          <div class="cast-character">Palette (voice)</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function playMovie() {
+      // Simulating intentional usability errors
+      const randomDelay = Math.random() * 5000; // Random delay up to 5 seconds
+      setTimeout(() => {
+        if (Math.random() < 0.2) {
+          alert("Error: Unable to load video. Please try again later.");
+        } else {
+          window.location.href = "/watch/chromatic-dreams";
+        }
+      }, randomDelay);
+    }
+
+    // Intentional layout shift
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const movieInfo = document.querySelector('.movie-info');
+        movieInfo.style.marginTop = `${Math.random() * 50}px`;
+      }, 2000);
+    });
+
+    // Randomly hide cast members
+    const castMembers = document.querySelectorAll('.cast-member');
+    castMembers.forEach(member => {
+      if (Math.random() < 0.2) {
+        member.style.display = 'none';
+      }
+    });
+
+    // Intermittent scroll jank
+    window.addEventListener('scroll', () => {
+      if (Math.random() < 0.1) {
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+          document.body.style.overflow = '';
+        }, 500);
+      }
+    });
+
+    // Random font size changes
+    const textElements = document.querySelectorAll('p, .cast-name, .cast-character');
+    textElements.forEach(el => {
+      if (Math.random() < 0.3) {
+        el.style.fontSize = `${0.8 + Math.random() * 0.4}em`;
+      }
+    });
+
+    // Inconsistent hover effects
+    const interactiveElements = document.querySelectorAll('button, .cast-member');
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        if (Math.random() < 0.3) {
+          el.style.transform = 'scale(1.1)';
+        }
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = '';
+      });
+    });
+  </script>
+</body>
+</html>

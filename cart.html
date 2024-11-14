@@ -1,0 +1,303 @@
+<html><head><base href="https://mercadolibre-clon.com/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MercadoLibre Clon - Productos y Carrito</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ebebeb;
+      }
+      header {
+        background-color: #fff159;
+        padding: 20px;
+        text-align: center;
+      }
+      h1 {
+        color: #333;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .product-form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+      }
+      .product-list, .cart {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .product-item, .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        padding: 10px 0;
+      }
+      .btn {
+        background-color: #3483fa;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .btn:hover {
+        background-color: #2968c8;
+      }
+      .btn-danger {
+        background-color: #e4393c;
+      }
+      .btn-danger:hover {
+        background-color: #c13033;
+      }
+      .cart-total {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-top: 20px;
+      }
+      nav {
+        background-color: #333;
+        padding: 10px;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        margin-right: 10px;
+      }
+      .hero {
+        background-color: #f0f0f0;
+        padding: 40px 20px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .hero h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.2em;
+        color: #666;
+      }
+      .products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+      .product-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: 20px;
+        width: calc(25% - 20px);
+        text-align: center;
+      }
+      .product-card img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+      }
+      .product-card h2 {
+        margin: 10px 0;
+        font-size: 1.2em;
+      }
+      .product-card p {
+        color: #666;
+        margin-bottom: 10px;
+      }
+      .product-card .price {
+        font-weight: bold;
+        color: #3483fa;
+        font-size: 1.2em;
+        margin-bottom: 15px;
+      }
+    </style>
+    </head>
+    <body>
+      <header>
+        <h1>MercadoLibre  QA</h1>
+        <img src="img/Logo QAmercado.jpeg" alt="Logo">
+      </header>
+      <nav>
+        <a href="#" id="products-link">Productos</a>
+        <a href="#" id="cart-link">Carrito</a>
+       
+      </nav>
+      <div class="container" id="products-page">
+        <section class="hero">
+          <h1>Bienvenido a Nuestra Tienda</h1>
+          <p>Encuentra los mejores productos a los mejores precios.</p>
+        </section>
+        <section class="products">
+          <div class="product-card">
+            <img src="img/lentes.jpeg" alt="Lentes de hombre, estilo moderno y elegante" width="200" height="200">
+            <h2>Lentes Hombre</h2>
+            <p>Descripción del producto 1.</p>
+            <p class="price">$99.99</p>
+            <button class="btn" data-product-name="Lentes Hombre" data-price="99.99">Agregar al Carrito</button>
+          </div>
+          <div class="product-card">
+            <img src="img/zapatos.jpeg" alt="Zapato formal de cuero negro" width="200" height="200">
+            <h2>Zapato Formal</h2>
+            <p>Descripción del producto 2.</p>
+            <p class="price">$149.99</p>
+            <button class="btn" data-product-name="Zapato Formal" data-price="149.99">Agregar al Carrito</button>
+          </div>
+          <div class="product-card">
+            <img src="img/libro  2.jpeg" alt="Libro de texto sobre Aseguramiento de Calidad" width="200" height="200">
+            <h2>Libro Texto QA</h2>
+            <p>Descripción del producto 3.</p>
+            <p class="price">$199.99</p>
+            <button class="btn" data-product-name="Libro Texto QA" data-price="199.99">Agregar al Carrito</button>
+          </div>
+          <div class="product-card">
+            <img src="img/smartwhatch.jpeg" alt="Reloj analógico clásico con correa de cuero" width="200" height="200">
+            <h2>Reloj Analógico</h2>
+            <p>Descripción del producto 4.</p>
+            <p class="price">$649.99</p>
+            <button class="btn" data-product-name="Reloj Analógico" data-price="649.99">Agregar al Carrito</button>
+          </div>
+        </section>
+        <div class="product-form">
+      <h2>Agregar Producto</h2>
+          <input type="text" id="product-name" placeholder="Nombre del producto">
+          <input type="number" id="product-price" placeholder="Precio">
+          <button class="btn" id="add-product">Agregar</button>
+        </div>
+        <div class="product-list">
+          <h2>Lista de Productos</h2>
+          <div id="product-items"></div>
+        </div>
+      </div>
+      <div class="container" id="cart-page" style="display: none;">
+        <div class="cart">
+          <h2>Carrito de Compras</h2>
+          <div id="cart-items"></div>
+          <div class="cart-total">Total: $<span id="cart-total">0</span></div>
+          <button class="btn btn-danger" id="clear-cart">Vaciar Carrito</button>
+        </div>
+      </div>
+    
+    <script>
+    let products = [
+      { name: "Lentes Hombre", price: 99.99 },
+      { name: "Zapato Formal", price: 149.99 },
+      { name: "Libro Texto QA", price: 199.99 },
+      { name: "Reloj Analógico", price: 649.99 }
+    ];
+    let cart = [];
+    
+    const productNameInput = document.getElementById('product-name');
+    const productPriceInput = document.getElementById('product-price');
+    const addProductBtn = document.getElementById('add-product');
+    const productItems = document.getElementById('product-items');
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    const clearCartBtn = document.getElementById('clear-cart');
+    const productsLink = document.getElementById('products-link');
+    const cartLink = document.getElementById('cart-link');
+    const productsPage = document.getElementById('products-page');
+    const cartPage = document.getElementById('cart-page');
+    
+    addProductBtn.addEventListener('click', addProduct);
+    clearCartBtn.addEventListener('click', clearCart);
+    productsLink.addEventListener('click', showProductsPage);
+    cartLink.addEventListener('click', showCartPage);
+    
+    // Agregar event listeners para los botones de "Agregar al Carrito" en las tarjetas de productos
+    document.querySelectorAll('.product-card button').forEach(button => {
+      button.addEventListener('click', function() {
+        const name = this.getAttribute('data-product-name');
+        const price = parseFloat(this.getAttribute('data-price'));
+        addToCart({ name, price });
+      });
+    });
+    
+    function addProduct() {
+      const name = productNameInput.value;
+      const price = parseFloat(productPriceInput.value);
+      if (name && price && products.length < 5) {
+        const product = { name, price };
+        products.push(product);
+        updateProductList();
+        productNameInput.value = '';
+        productPriceInput.value = '';
+      } else if (products.length >= 5) {
+        alert('Ya has agregado 5 productos. No puedes agregar más.');
+      } else {
+        alert('Por favor, ingresa un nombre y un precio válido.');
+      }
+    }
+    
+    function updateProductList() {
+      productItems.innerHTML = '';
+      products.forEach((product, index) => {
+        const item = document.createElement('div');
+        item.className = 'product-item';
+        item.innerHTML = `
+          <span>${product.name} - $${product.price.toFixed(2)}</span>
+          <button class="btn" onclick="addToCart(${JSON.stringify(product)})">Agregar al carrito</button>
+        `;
+        productItems.appendChild(item);
+      });
+    }
+    
+    function addToCart(product) {
+      cart.push(product);
+      updateCart();
+    }
+    
+    function updateCart() {
+      cartItems.innerHTML = '';
+      let total = 0;
+      cart.forEach((product, index) => {
+        const item = document.createElement('div');
+        item.className = 'cart-item';
+        item.innerHTML = `
+          <span>${product.name} - $${product.price.toFixed(2)}</span>
+          <button class="btn btn-danger" onclick="removeFromCart(${index})">Eliminar</button>
+        `;
+        cartItems.appendChild(item);
+        total += product.price;
+      });
+      cartTotal.textContent = total.toFixed(2);
+    }
+    
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+    
+    function clearCart() {
+      cart = [];
+      updateCart();
+    }
+    
+    function showProductsPage(e) {
+      e.preventDefault();
+      productsPage.style.display = 'block';
+      cartPage.style.display = 'none';
+    }
+    
+    function showCartPage(e) {
+      e.preventDefault();
+      productsPage.style.display = 'none';
+      cartPage.style.display = 'block';
+    }
+    
+    updateProductList();
+    updateCart();
+    </script>
+    </body></html>

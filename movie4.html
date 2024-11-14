@@ -1,0 +1,270 @@
+<html><head>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NetflixQA - Neon Nights</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  .logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .back-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .content {
+    padding: 5rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .movie-details {
+    display: flex;
+    gap: 2rem;
+  }
+  .movie-poster {
+    flex: 0 0 300px;
+  }
+  .movie-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .movie-info {
+    flex: 1;
+  }
+  .movie-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .movie-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  .movie-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .play-button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .play-button:hover {
+    background-color: #f40612;
+  }
+  .video-player {
+    display: none;
+    margin-top: 2rem;
+  }
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+  }
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .video-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .control-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    .movie-details {
+      flex-direction: column;
+    }
+    .movie-poster {
+      flex: 0 0 auto;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="location.href='NetflixQA.html'" style="cursor: pointer;">NetflixQA</div>
+    <button class="back-button" onclick="history.back()">← Back</button>
+  </nav>
+
+  <main class="content">
+    <div class="movie-details">
+      <div class="movie-poster">
+        <img src="img/Neon Nights.jpg" alt="Neon Nights movie poster">
+      </div>
+      <div class="movie-info">
+        <h1 class="movie-title">Neon Nights</h1>
+        <div class="movie-meta">
+          <span>2023</span>
+          <span>2h 15min</span>
+          <span>Sci-Fi, Thriller</span>
+          <span>Rating: 8.7/10</span>
+        </div>
+        <p class="movie-description">
+          In the pulsating heart of Neo-Tokyo, a rogue AI detective named Zephyr navigates a labyrinth of corruption and virtual reality. As the lines between the digital and physical worlds blur, Zephyr uncovers a conspiracy that threatens to redefine humanity itself. With stunning visuals and a haunting synth score, "Neon Nights" plunges viewers into a neon-drenched cyberpunk thriller that questions the nature of consciousness and reality.
+        </p>
+        
+        <button class="play-button" onclick="window.location.href='ReproMovie3.html'">Play</button>
+      </div>
+    </div>
+
+    <div id="videoPlayer" class="video-player">
+      <div class="video-container">
+        <video id="movieVideo" width="100%" height="auto">
+          <source src="/path/to/neon-nights-trailer.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-controls">
+        <button class="control-button" onclick="rewind()">⏪</button>
+        <button class="control-button" id="playPauseBtn" onclick="playPause()">⏸️</button>
+        <button class="control-button" onclick="forward()">⏩</button>
+        <button class="control-button" onclick="toggleMute()">🔊</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const videoPlayer = document.getElementById('videoPlayer');
+    const movieVideo = document.getElementById('movieVideo');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+
+    function toggleVideoPlayer() {
+      if (videoPlayer.style.display === 'none' || videoPlayer.style.display === '') {
+        videoPlayer.style.display = 'block';
+        movieVideo.play();
+      } else {
+        videoPlayer.style.display = 'none';
+        movieVideo.pause();
+      }
+    }
+
+    function playPause() {
+      if (movieVideo.paused) {
+        movieVideo.play();
+        playPauseBtn.textContent = '⏸️';
+      } else {
+        movieVideo.pause();
+        playPauseBtn.textContent = '▶️';
+      }
+    }
+
+    function rewind() {
+      movieVideo.currentTime -= 10;
+    }
+
+    function forward() {
+      movieVideo.currentTime += 10;
+    }
+
+    function toggleMute() {
+      movieVideo.muted = !movieVideo.muted;
+    }
+
+    // Intentional usability errors
+    let volumeGlitch = false;
+    movieVideo.addEventListener('volumechange', function() {
+      if (!volumeGlitch && Math.random() < 0.3) {
+        volumeGlitch = true;
+        setTimeout(() => {
+          this.volume = Math.random();
+          volumeGlitch = false;
+        }, 2000);
+      }
+    });
+
+    let playbackGlitch = false;
+    movieVideo.addEventListener('timeupdate', function() {
+      if (!playbackGlitch && Math.random() < 0.1) {
+        playbackGlitch = true;
+        const glitchDuration = Math.random() * 3000;
+        this.playbackRate = 0.5 + Math.random();
+        setTimeout(() => {
+          this.playbackRate = 1;
+          playbackGlitch = false;
+        }, glitchDuration);
+      }
+    });
+
+    // Random seek on 20% of clicks
+    document.addEventListener('click', function() {
+      if (Math.random() < 0.2) {
+        movieVideo.currentTime = Math.random() * movieVideo.duration;
+      }
+    });
+
+    // Delayed response to play/pause
+    const originalPlay = movieVideo.play;
+    const originalPause = movieVideo.pause;
+    movieVideo.play = function() {
+      setTimeout(() => originalPlay.call(this), Math.random() * 1000);
+    };
+    movieVideo.pause = function() {
+      setTimeout(() => originalPause.call(this), Math.random() * 1000);
+    };
+
+    // Inconsistent full-screen behavior
+    document.addEventListener('fullscreenchange', function() {
+      if (Math.random() < 0.3) {
+        setTimeout(() => document.exitFullscreen(), 2000);
+      }
+    });
+
+    // Occasionally hide controls
+    setInterval(() => {
+      if (Math.random() < 0.1) {
+        document.querySelector('.video-controls').style.visibility = 'hidden';
+        setTimeout(() => {
+          document.querySelector('.video-controls').style.visibility = 'visible';
+        }, 5000);
+      }
+    }, 10000);
+  </script>
+</body>
+</html>

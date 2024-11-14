@@ -1,0 +1,256 @@
+<html><head>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eternal Sunshine - NetflixQA</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  .logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .content {
+    padding: 5rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .movie-details {
+    display: flex;
+    gap: 2rem;
+  }
+  .movie-poster {
+    flex: 0 0 300px;
+  }
+  .movie-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .movie-info {
+    flex: 1;
+  }
+  .movie-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .movie-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .movie-rating, .movie-year, .movie-duration {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+  .movie-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .play-button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .play-button:hover {
+    background-color: #ff0a16;
+  }
+  .cast-section {
+    margin-top: 3rem;
+  }
+  .cast-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .cast-list {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  .cast-member {
+    flex: 0 0 150px;
+    text-align: center;
+  }
+  .cast-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+  }
+  .cast-name {
+    font-weight: bold;
+  }
+  .cast-character {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  @media (max-width: 768px) {
+    .movie-details {
+      flex-direction: column;
+    }
+    .movie-poster {
+      flex: 0 0 auto;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="location.href='NetflixQA.html'" style="cursor: pointer;">NetflixQA</div>
+  </nav>
+
+  <main class="content">
+    <div class="movie-details">
+      <div class="movie-poster">
+        <img src="img/Eternal Sunshine movie.jpg" alt="Eternal Sunshine movie poster">
+      </div>
+      <div class="movie-info">
+        <h1 class="movie-title">Eternal Sunshine</h1>
+        <div class="movie-meta">
+          <span class="movie-rating">PG-13</span>
+          <span class="movie-year">2024</span>
+          <span class="movie-duration">2h 15m</span>
+        </div>
+        <p class="movie-description">
+          "Eternal Sunshine" is a heartwarming drama that explores the beauty of life's simple moments. Set in a small coastal town, the film follows the intertwining stories of diverse characters as they navigate love, loss, and personal growth. Through stunning cinematography and poignant performances, director Emily Chen crafts a tapestry of human experiences that remind us of the joy found in everyday encounters.
+        </p>
+        <p class="movie-description">
+          As the characters' paths cross and diverge, they learn valuable lessons about empathy, forgiveness, and the power of community. From a retired teacher rediscovering her passion for art to a young couple facing unexpected challenges, each storyline contributes to a larger narrative about the resilience of the human spirit.
+        </p>
+        <button class="play-button" onclick="playMovie()">Play</button>
+      </div>
+    </div>
+
+    <section class="cast-section">
+      <h2 class="cast-title">Cast</h2>
+      <div class="cast-list">
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=A" alt="Actor A headshot">
+          <div class="cast-name">Olivia Thompson</div>
+          <div class="cast-character">Sarah Clarke</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=B" alt="Actor B headshot">
+          <div class="cast-name">Michael Chen</div>
+          <div class="cast-character">David Lee</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=C" alt="Actor C headshot">
+          <div class="cast-name">Sophia Rodriguez</div>
+          <div class="cast-character">Maria Gonzalez</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=D" alt="Actor D headshot">
+          <div class="cast-name">James Wilson</div>
+          <div class="cast-character">Robert Taylor</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=E" alt="Actor E headshot">
+          <div class="cast-name">Emily Patel</div>
+          <div class="cast-character">Aisha Khan</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function playMovie() {
+      // Simulate loading delay
+      const loadingTime = Math.random() < 0.3 ? 5000 : 1000;
+      const playButton = document.querySelector('.play-button');
+      playButton.textContent = 'Loading...';
+      playButton.disabled = true;
+
+      setTimeout(() => {
+        if (Math.random() < 0.2) {
+          alert('Error: Unable to play video. Please try again later.');
+          playButton.textContent = 'Play';
+          playButton.disabled = false;
+        } else {
+          window.location.href = '/player/movie6';
+        }
+      }, loadingTime);
+    }
+
+    // Intentional usability errors
+    window.addEventListener('load', function() {
+      // Randomly hide cast members
+      const castMembers = document.querySelectorAll('.cast-member');
+      castMembers.forEach(member => {
+        if (Math.random() < 0.2) {
+          member.style.display = 'none';
+        }
+      });
+
+      // Inconsistent font sizes
+      const paragraphs = document.querySelectorAll('.movie-description');
+      paragraphs.forEach(p => {
+        p.style.fontSize = (0.9 + Math.random() * 0.4) + 'rem';
+      });
+
+      // Random text selection on hover
+      document.body.addEventListener('mouseover', function(e) {
+        if (e.target.textContent && Math.random() < 0.1) {
+          const selection = window.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(e.target);
+          selection.removeAllRanges();
+          selection.addRange(range);
+        }
+      });
+    });
+
+    // Simulate slow image loading
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      const originalSrc = img.src;
+      img.src = '';
+      setTimeout(() => {
+        img.src = originalSrc;
+      }, 1000 + Math.random() * 3000);
+    });
+
+    // Keyboard trap in cast list
+    const castList = document.querySelector('.cast-list');
+    castList.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        const focusableElements = castList.querySelectorAll('img');
+        let currentIndex = Array.from(focusableElements).indexOf(document.activeElement);
+        currentIndex = (currentIndex + 1) % focusableElements.length;
+        focusableElements[currentIndex].focus();
+      }
+    });
+  </script>
+</body>
+</html>

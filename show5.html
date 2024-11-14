@@ -1,0 +1,268 @@
+<html><head>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynastic Reign - NetflixQA</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  .logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .content {
+    padding: 5rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .show-details {
+    display: flex;
+    gap: 2rem;
+  }
+  .show-poster {
+    flex: 0 0 300px;
+  }
+  .show-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .show-info {
+    flex: 1;
+  }
+  .show-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .show-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #999;
+  }
+  .show-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .play-button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .play-button:hover {
+    background-color: #f40612;
+  }
+  .cast-section {
+    margin-top: 3rem;
+  }
+  .cast-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .cast-list {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  .cast-member {
+    flex: 0 0 150px;
+    text-align: center;
+  }
+  .cast-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+  }
+  .cast-name {
+    font-weight: bold;
+  }
+  .cast-role {
+    font-size: 0.9rem;
+    color: #999;
+  }
+  @media (max-width: 768px) {
+    .show-details {
+      flex-direction: column;
+    }
+    .show-poster {
+      flex: 0 0 auto;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="location.href='NetflixQA.html'" style="cursor: pointer;">NetflixQA</div>
+  </nav>
+
+  <main class="content">
+    <div class="show-details">
+      <div class="show-poster">
+        <img src="img/Dynastic Reign TV show.jpg" alt="Dynastic Reign poster">
+      </div>
+      <div class="show-info">
+        <h1 class="show-title">Dynastic Reign</h1>
+        <div class="show-meta">
+          <span>2023</span>
+          <span>5 Seasons</span>
+          <span>TV-MA</span>
+          <span>Fantasy, Drama</span>
+        </div>
+        <p class="show-description">
+          Set in the fictional medieval kingdom of Aethoria, "Dynastic Reign" weaves a tapestry of political intrigue, power struggles, and personal drama. As the aging King Eldred's health fails, his children and the kingdom's noble houses maneuver for position in the inevitable succession crisis. Alliances are forged and broken, secrets are weaponized, and the fate of the realm hangs in the balance.
+        </p>
+        <p class="show-description">
+          With its richly detailed world-building, complex characters, and unpredictable plot twists, "Dynastic Reign" has captivated audiences worldwide. The show explores themes of loyalty, ambition, and the corrupting influence of power, all set against a backdrop of stunning visuals and epic battles.
+        </p>
+        <button class="play-button" onclick="playShow()">Play</button>
+      </div>
+    </div>
+
+    <section class="cast-section">
+      <h2 class="cast-title">Cast</h2>
+      <div class="cast-list">
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=A" alt="Aidan Blackwood">
+          <div class="cast-name">Aidan Blackwood</div>
+          <div class="cast-role">Prince Cedric</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=E" alt="Eleanor Frost">
+          <div class="cast-name">Eleanor Frost</div>
+          <div class="cast-role">Princess Lyanna</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=M" alt="Marcus Redwood">
+          <div class="cast-name">Marcus Redwood</div>
+          <div class="cast-role">Lord Darius Blackthorn</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=O" alt="Olivia Sunstone">
+          <div class="cast-name">Olivia Sunstone</div>
+          <div class="cast-role">Lady Serena of House Aurum</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=I" alt="Ian Steelshard">
+          <div class="cast-name">Ian Steelshard</div>
+          <div class="cast-role">Ser Galahad, Captain of the Royal Guard</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function playShow() {
+      // Simulating video playback with intentional errors
+      const errorTypes = [
+        "buffering",
+        "quality_drop",
+        "audio_desync",
+        "subtitle_delay",
+        "random_pause"
+      ];
+
+      const randomError = errorTypes[Math.floor(Math.random() * errorTypes.length)];
+
+      switch (randomError) {
+        case "buffering":
+          alert("Buffering... Please wait. (This is a simulated error)");
+          break;
+        case "quality_drop":
+          alert("Video quality has dropped due to network issues. (This is a simulated error)");
+          break;
+        case "audio_desync":
+          alert("Audio is out of sync. Please refresh the page. (This is a simulated error)");
+          break;
+        case "subtitle_delay":
+          alert("Subtitles are delayed. Adjusting... (This is a simulated error)");
+          break;
+        case "random_pause":
+          alert("Playback paused unexpectedly. Click OK to resume. (This is a simulated error)");
+          break;
+        default:
+          alert("Now playing Dynastic Reign");
+      }
+    }
+
+    // Simulating slow image loading
+    window.addEventListener('load', function() {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        if (Math.random() < 0.3) {
+          img.style.opacity = '0';
+          setTimeout(() => {
+            img.style.opacity = '1';
+            img.style.transition = 'opacity 0.5s';
+          }, 2000 + Math.random() * 3000);
+        }
+      });
+    });
+
+    // Simulating occasional UI glitches
+    setInterval(() => {
+      if (Math.random() < 0.1) {
+        const glitchElement = document.querySelector('.show-title');
+        const originalText = glitchElement.textContent;
+        glitchElement.textContent = originalText.split('').sort(() => 0.5 - Math.random()).join('');
+        setTimeout(() => {
+          glitchElement.textContent = originalText;
+        }, 500);
+      }
+    }, 5000);
+
+    // Simulating inconsistent hover effects
+    const castMembers = document.querySelectorAll('.cast-member');
+    castMembers.forEach(member => {
+      member.addEventListener('mouseenter', function() {
+        if (Math.random() < 0.3) {
+          this.style.transform = 'scale(1.1)';
+        }
+      });
+      member.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+
+    // Simulating occasional scroll jank
+    window.addEventListener('scroll', function() {
+      if (Math.random() < 0.1) {
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+          document.body.style.overflow = '';
+        }, 500);
+      }
+    });
+  </script>
+</body>
+</html>

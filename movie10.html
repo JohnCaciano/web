@@ -1,0 +1,251 @@
+<html><head>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harmonic Convergence - NetflixQA</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  .logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .content {
+    padding: 5rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .movie-details {
+    display: flex;
+    gap: 2rem;
+  }
+  .movie-poster {
+    flex: 0 0 300px;
+  }
+  .movie-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .movie-info {
+    flex: 1;
+  }
+  .movie-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .movie-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .movie-rating, .movie-year, .movie-duration {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+  .movie-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .movie-cast {
+    margin-bottom: 1rem;
+  }
+  .cast-list {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+  }
+  .cast-member {
+    text-align: center;
+  }
+  .cast-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .play-button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .play-button:hover {
+    background-color: #f40612;
+  }
+  @media (max-width: 768px) {
+    .movie-details {
+      flex-direction: column;
+    }
+    .movie-poster {
+      flex: 0 0 auto;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="location.href='NetflixQA.html'" style="cursor: pointer;">NetflixQA</div>
+  </nav>
+
+  <main class="content">
+    <div class="movie-details">
+      <div class="movie-poster">
+        <img src="img/Harmonic Convergence movie.jpg" alt="Harmonic Convergence movie poster">
+      </div>
+      <div class="movie-info">
+        <h1 class="movie-title">Harmonic Convergence</h1>
+        <div class="movie-meta">
+          <span class="movie-rating">PG-13</span>
+          <span class="movie-year">2023</span>
+          <span class="movie-duration">2h 15m</span>
+        </div>
+        <p class="movie-description">
+          "Harmonic Convergence" is a captivating musical drama that explores the power of music to unite cultures and bridge divides. Set against the backdrop of a global music festival, the film follows the journey of Aria, a classically trained violinist, and Zain, a street musician from a war-torn country. As they collaborate on a groundbreaking performance, they discover that their contrasting musical styles create a unique harmony that resonates with people from all walks of life.
+        </p>
+        <p class="movie-description">
+          Directed by acclaimed filmmaker Sophia Chen, the movie features stunning cinematography that captures the vibrant energy of live performances and the intimate moments of musical creation. The soundtrack, composed by the legendary Hans Zimmer, blends classical orchestrations with world music influences, creating a rich tapestry of sound that serves as a character in its own right.
+        </p>
+        <div class="movie-cast">
+          <h3>Cast</h3>
+          <div class="cast-list">
+            <div class="cast-member">
+              <img src="https://via.placeholder.com/100x100.png?text=Emma+Stone" alt="Emma Stone">
+              <p>Emma Stone</p>
+            </div>
+            <div class="cast-member">
+              <img src="https://via.placeholder.com/100x100.png?text=Rami+Malek" alt="Rami Malek">
+              <p>Rami Malek</p>
+            </div>
+            <div class="cast-member">
+              <img src="https://via.placeholder.com/100x100.png?text=Viola+Davis" alt="Viola Davis">
+              <p>Viola Davis</p>
+            </div>
+            <div class="cast-member">
+              <img src="https://via.placeholder.com/100x100.png?text=John+Legend" alt="John Legend">
+              <p>John Legend</p>
+            </div>
+          </div>
+        </div>
+        <button class="play-button" onclick="playMovie()">Play</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function playMovie() {
+      // Simulate video playback with intentional errors
+      const loadingTime = Math.random() * 5000 + 2000; // 2-7 seconds loading time
+      alert('Loading movie...');
+      setTimeout(() => {
+        if (Math.random() < 0.2) {
+          alert('Error: Video playback failed. Please try again later.');
+        } else {
+          const videoPlayer = document.createElement('div');
+          videoPlayer.style.position = 'fixed';
+          videoPlayer.style.top = '0';
+          videoPlayer.style.left = '0';
+          videoPlayer.style.width = '100%';
+          videoPlayer.style.height = '100%';
+          videoPlayer.style.backgroundColor = '#000';
+          videoPlayer.style.display = 'flex';
+          videoPlayer.style.alignItems = 'center';
+          videoPlayer.style.justifyContent = 'center';
+          videoPlayer.innerHTML = `
+            <div style="text-align: center;">
+              <h2>Now Playing: Harmonic Convergence</h2>
+              <p>Video controls are intentionally non-functional for QA testing.</p>
+              <button onclick="closeVideo()" style="padding: 10px 20px; margin-top: 20px;">Close Video</button>
+            </div>
+          `;
+          document.body.appendChild(videoPlayer);
+        }
+      }, loadingTime);
+    }
+
+    function closeVideo() {
+      const videoPlayer = document.querySelector('div[style*="position: fixed"]');
+      if (videoPlayer) {
+        videoPlayer.remove();
+      }
+    }
+
+    // Intentional usability issues
+    window.addEventListener('load', function() {
+      // Randomly hide the play button
+      if (Math.random() < 0.1) {
+        document.querySelector('.play-button').style.display = 'none';
+      }
+
+      // Randomly change the movie title
+      if (Math.random() < 0.05) {
+        document.querySelector('.movie-title').textContent = 'Harmonic Divergence';
+      }
+
+      // Randomly misalign content
+      const contentElements = document.querySelectorAll('.movie-info > *');
+      contentElements.forEach(el => {
+        if (Math.random() < 0.2) {
+          el.style.marginLeft = (Math.random() * 50) + 'px';
+        }
+      });
+
+      // Intermittently make cast images unclickable
+      const castImages = document.querySelectorAll('.cast-member img');
+      castImages.forEach(img => {
+        img.addEventListener('click', function(e) {
+          if (Math.random() < 0.3) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        });
+      });
+    });
+
+    // Simulate slow image loading
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      const originalSrc = img.src;
+      img.src = '';
+      setTimeout(() => {
+        img.src = originalSrc;
+      }, Math.random() * 3000 + 1000);
+    });
+
+    // Add keyboard trap for accessibility testing
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        document.querySelector('.play-button').focus();
+      }
+    });
+  </script>
+</body>
+</html>

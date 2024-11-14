@@ -1,0 +1,240 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velocity Surge - NetflixQA</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .back-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  .movie-details {
+    display: flex;
+    gap: 2rem;
+  }
+  .movie-poster {
+    flex: 0 0 300px;
+  }
+  .movie-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .movie-info {
+    flex: 1;
+  }
+  .movie-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .movie-metadata {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .movie-rating, .movie-year, .movie-duration {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+  .movie-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .cast-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .cast-member {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+  }
+  .play-button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .play-button:hover {
+    background-color: #f40612;
+  }
+  #video-player {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+  }
+  #video-player video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .close-player {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    .movie-details {
+      flex-direction: column;
+    }
+    .movie-poster {
+      flex: 0 0 auto;
+      max-width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="location.href='movie9.html'" style="cursor: pointer;">NetflixQA</div>
+    <button class="back-button" onclick="history.back()">← Back</button>
+  </nav>
+
+  <main class="content">
+    <div class="movie-details">
+      <div class="movie-poster">
+        <img src="img/Velocity Surge movie poster.jpg" alt="Velocity Surge movie poster">
+      </div>
+      <div class="movie-info">
+        <h1 class="movie-title">Velocity Surge</h1>
+        <div class="movie-metadata">
+          <span class="movie-rating">PG-13</span>
+          <span class="movie-year">2023</span>
+          <span class="movie-duration">2h 15min</span>
+        </div>
+        <p class="movie-description">
+          Buckle up for the adrenaline-fueled thrill ride of the year! "Velocity Surge" is a high-octane racing thriller that seamlessly blends the world of professional racing with a gripping tale of international espionage. Follow the journey of Alex Chase, a talented but disgraced former race car driver, as he's recruited by a covert government agency to infiltrate an underground racing syndicate suspected of funding global terrorism.
+        </p>
+        <p class="movie-description">
+          As Alex navigates treacherous hairpin turns and high-stakes poker games, he uncovers a conspiracy that goes far beyond the racetrack. With cutting-edge car chases filmed across five continents and a star-studded cast delivering powerhouse performances, "Velocity Surge" pushes the limits of the action genre, delivering a perfect balance of heart-pounding excitement and sophisticated storytelling.
+        </p>
+        <div class="cast-list">
+          <span class="cast-member">Ryan Reynolds</span>
+          <span class="cast-member">Zoe Saldana</span>
+          <span class="cast-member">Idris Elba</span>
+          <span class="cast-member">Charlize Theron</span>
+          <span class="cast-member">Jason Statham</span>
+        </div>
+        <button class="play-button" onclick="playMovie()">▶ Play</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="video-player">
+    <span class="close-player" onclick="closePlayer()">×</span>
+    <video controls>
+      <source src="movie-trailer.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <script>
+    function playMovie() {
+      const player = document.getElementById('video-player');
+      player.style.display = 'block';
+      
+      // Intentional error: Sometimes the video doesn't start playing automatically
+      if (Math.random() < 0.3) {
+        player.querySelector('video').autoplay = false;
+      } else {
+        player.querySelector('video').play();
+      }
+    }
+
+    function closePlayer() {
+      const player = document.getElementById('video-player');
+      player.style.display = 'none';
+      player.querySelector('video').pause();
+    }
+
+    // Intentional usability issues
+    window.addEventListener('load', function() {
+      // Randomly misalign elements
+      const elements = document.querySelectorAll('.movie-info > *');
+      elements.forEach(el => {
+        if (Math.random() < 0.2) {
+          el.style.marginLeft = (Math.random() * 20) + 'px';
+        }
+      });
+
+      // Occasional typos in the movie description
+      const description = document.querySelector('.movie-description');
+      if (Math.random() < 0.3) {
+        description.innerHTML = description.innerHTML.replace('racing', 'racign');
+      }
+
+      // Inconsistent button behavior
+      const playButton = document.querySelector('.play-button');
+      playButton.addEventListener('click', function(e) {
+        if (Math.random() < 0.2) {
+          e.stopPropagation();
+          alert('Error: Unable to play video at this time.');
+        }
+      });
+
+      // Delayed loading of cast members
+      const castList = document.querySelector('.cast-list');
+      castList.style.opacity = '0';
+      setTimeout(() => {
+        castList.style.opacity = '1';
+        castList.style.transition = 'opacity 0.5s ease-in';
+      }, 2000 + Math.random() * 3000);
+    });
+
+    // Keyboard navigation issues
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('video-player').style.display === 'block') {
+        if (Math.random() < 0.3) {
+          // Sometimes the Escape key doesn't close the video player
+          e.preventDefault();
+        } else {
+          closePlayer();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

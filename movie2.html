@@ -1,0 +1,260 @@
+<html><head>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Legends - NetflixQA</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  .logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .content {
+    padding: 5rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .movie-details {
+    display: flex;
+    gap: 2rem;
+  }
+  .movie-poster {
+    flex: 0 0 300px;
+  }
+  .movie-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .movie-info {
+    flex: 1;
+  }
+  .movie-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .movie-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #999;
+  }
+  .movie-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .play-button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .play-button:hover {
+    background-color: #f40612;
+  }
+  .cast-section {
+    margin-top: 3rem;
+  }
+  .cast-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .cast-list {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  .cast-member {
+    flex: 0 0 150px;
+    text-align: center;
+  }
+  .cast-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+  }
+  .cast-name {
+    font-weight: bold;
+  }
+  .cast-role {
+    font-size: 0.9rem;
+    color: #999;
+  }
+  @media (max-width: 768px) {
+    .movie-details {
+      flex-direction: column;
+    }
+    .movie-poster {
+      flex: 0 0 auto;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="location.href='NetflixQA.html'" style="cursor: pointer;">NetflixQA</div>
+  </nav>
+
+  <main class="content">
+    <div class="movie-details">
+      <div class="movie-poster">
+        <img src="img/Urban Legends.jpg" alt="Urban Legends movie poster">
+      </div>
+      <div class="movie-info">
+        <h1 class="movie-title">Urban Legends</h1>
+        <div class="movie-meta">
+          <span>2023</span>
+          <span>2h 15min</span>
+          <span>Mystery, Thriller</span>
+          <span>PG-13</span>
+        </div>
+        <p class="movie-description">
+          In the heart of a bustling metropolis, a group of skeptical college students embark on a thrilling journey to uncover the truth behind the city's most infamous urban legends. As they delve deeper into the mysteries, the line between fact and fiction blurs, and they soon find themselves living the very stories they once dismissed as mere myths.
+
+          From the director of "Midnight Whispers" comes a gripping tale that will keep you on the edge of your seat. "Urban Legends" masterfully weaves together suspense, humor, and heart-pounding action, challenging viewers to question what they believe and reminding us that sometimes, the most unbelievable stories hold the deepest truths.
+
+          This critically acclaimed film has been praised for its innovative storytelling, stunning visual effects, and breakout performances from its young cast. Prepare to be captivated by a world where folklore comes to life and every shadow holds a secret waiting to be revealed.
+        </p>
+        
+        <button class="play-button" onclick="window.location.href='ReproMovie2.html'">Play</button>
+      </div>
+    </div>
+
+    <section class="cast-section">
+      <h2 class="cast-title">Cast</h2>
+      <div class="cast-list">
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=Emma" alt="Emma Stone">
+          <div class="cast-name">Emma Stone</div>
+          <div class="cast-role">Sarah Thompson</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=Tom" alt="Tom Holland">
+          <div class="cast-name">Tom Holland</div>
+          <div class="cast-role">Alex Chen</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=Zendaya" alt="Zendaya">
+          <div class="cast-name">Zendaya</div>
+          <div class="cast-role">Olivia Rodriguez</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=John" alt="John Boyega">
+          <div class="cast-name">John Boyega</div>
+          <div class="cast-role">Marcus Johnson</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=Lupita" alt="Lupita Nyong'o">
+          <div class="cast-name">Lupita Nyong'o</div>
+          <div class="cast-role">Dr. Amelia Foster</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function playMovie() {
+      // Simulate loading delay
+      const loadingTime = Math.random() < 0.3 ? 5000 : 1000;
+      const playButton = document.querySelector('.play-button');
+      playButton.textContent = 'Loading...';
+      playButton.disabled = true;
+
+      setTimeout(() => {
+        if (Math.random() < 0.2) {
+          alert('Error: Unable to play video. Please try again later.');
+          playButton.textContent = 'Play';
+          playButton.disabled = false;
+        } else {
+          window.location.href = '/watch/movie2';
+        }
+      }, loadingTime);
+    }
+
+    // Intentional usability errors
+    window.addEventListener('load', function() {
+      // Random text color changes
+      const paragraphs = document.querySelectorAll('p');
+      paragraphs.forEach(p => {
+        if (Math.random() < 0.3) {
+          p.style.color = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`;
+        }
+      });
+
+      // Inconsistent font sizes
+      const textElements = document.querySelectorAll('.movie-description, .cast-role');
+      textElements.forEach(el => {
+        if (Math.random() < 0.5) {
+          el.style.fontSize = `${0.8 + Math.random() * 0.4}em`;
+        }
+      });
+
+      // Delayed image loading
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        if (Math.random() < 0.4) {
+          const originalSrc = img.src;
+          img.src = '';
+          setTimeout(() => {
+            img.src = originalSrc;
+          }, 2000 + Math.random() * 3000);
+        }
+      });
+    });
+
+    // Keyboard navigation issues
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        if (Math.random() < 0.3) {
+          e.preventDefault();
+          document.querySelector('.logo').focus();
+        }
+      }
+    });
+
+    // Inconsistent hover effects
+    const interactiveElements = document.querySelectorAll('.play-button, .cast-member');
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', function() {
+        if (Math.random() < 0.4) {
+          this.style.transform = 'scale(1.1)';
+        }
+      });
+      el.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+  </script>
+</body>
+</html>

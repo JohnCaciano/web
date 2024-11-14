@@ -1,0 +1,228 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Culinary Chronicles - NetflixQA</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  .show-details {
+    display: flex;
+    gap: 2rem;
+  }
+  .show-poster {
+    flex: 0 0 300px;
+  }
+  .show-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .show-info {
+    flex: 1;
+  }
+  .show-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .show-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .show-rating, .show-year, .show-seasons {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+  .show-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .show-cast {
+    margin-bottom: 1rem;
+  }
+  .cast-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .cast-list {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+  }
+  .cast-member {
+    text-align: center;
+  }
+  .cast-member img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .play-button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .play-button:hover {
+    background-color: #f40612;
+  }
+  @media (max-width: 768px) {
+    .show-details {
+      flex-direction: column;
+    }
+    .show-poster {
+      flex: 0 0 auto;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="location.href='NetflixQA.html'" style="cursor: pointer;">NetflixQA</div>
+  </nav>
+
+  <main class="content">
+    <div class="show-details">
+      <div class="show-poster">
+        <img src="img/Culinary Chronicles TV.jpg" alt="Culinary Chronicles show poster">
+      </div>
+      <div class="show-info">
+        <h1 class="show-title">Culinary Chronicles</h1>
+        <div class="show-meta">
+          <span class="show-rating">TV-PG</span>
+          <span class="show-year">2023</span>
+          <span class="show-seasons">2 Seasons</span>
+        </div>
+        <p class="show-description">
+          Embark on a mouthwatering journey around the world with "Culinary Chronicles," a captivating documentary series that follows a diverse team of passionate chefs as they uncover hidden gastronomic treasures. From bustling street markets to remote villages, our intrepid culinary explorers dive deep into local cultures, unearthing age-old recipes and innovative cooking techniques.
+        </p>
+        <p class="show-description">
+          Each episode is a feast for the senses, blending stunning visuals of exotic locales with the sizzle and aroma of local cuisines. Watch as our chefs not only taste and learn but also collaborate with local cooks to create fusion dishes that honor tradition while pushing culinary boundaries.
+        </p>
+        <div class="show-cast">
+          <h2 class="cast-title">Cast & Crew</h2>
+          <div class="cast-list">
+            <div class="cast-member">
+              <img src="https://via.placeholder.com/100x100.png?text=Chef+A" alt="Chef Alessandra Romano">
+              <p>Alessandra Romano</p>
+            </div>
+            <div class="cast-member">
+              <img src="https://via.placeholder.com/100x100.png?text=Chef+B" alt="Chef Jamal Thompson">
+              <p>Jamal Thompson</p>
+            </div>
+            <div class="cast-member">
+              <img src="https://via.placeholder.com/100x100.png?text=Chef+C" alt="Chef Yuki Tanaka">
+              <p>Yuki Tanaka</p>
+            </div>
+            <div class="cast-member">
+              <img src="https://via.placeholder.com/100x100.png?text=Director" alt="Director Sarah Chen">
+              <p>Sarah Chen</p>
+            </div>
+          </div>
+        </div>
+        <button class="play-button" onclick="playShow()">Play</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Intentional usability issues and errors
+    function playShow() {
+      // Simulate random playback issues
+      if (Math.random() < 0.3) {
+        setTimeout(() => {
+          alert("Error: Unable to load video. Please try again later.");
+        }, 2000);
+      } else {
+        window.location.href = "/watch/show2";
+      }
+    }
+
+    // Inconsistent hover effects
+    document.querySelectorAll('.cast-member').forEach(member => {
+      member.addEventListener('mouseenter', function() {
+        if (Math.random() < 0.5) {
+          this.style.transform = 'scale(1.1)';
+        }
+      });
+      member.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+
+    // Delayed content loading
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        document.querySelector('.show-description').style.opacity = '1';
+      }, Math.random() * 3000);
+    });
+
+    // Random UI glitches
+    setInterval(() => {
+      if (Math.random() < 0.1) {
+        document.body.style.filter = 'hue-rotate(90deg)';
+        setTimeout(() => {
+          document.body.style.filter = 'none';
+        }, 500);
+      }
+    }, 5000);
+
+    // Inconsistent button behavior
+    let clickCount = 0;
+    document.querySelector('.play-button').addEventListener('click', function(e) {
+      clickCount++;
+      if (clickCount % 3 === 0) {
+        e.stopPropagation();
+        alert("Feature temporarily unavailable. Please try again later.");
+      }
+    });
+
+    // Keyboard trap
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        document.querySelector('.logo').focus();
+      }
+    });
+
+    // Random scroll jumps
+    window.addEventListener('scroll', function() {
+      if (Math.random() < 0.05) {
+        window.scrollTo(0, Math.random() * document.body.scrollHeight);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<html>
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch: Urban Legends - NetflixQA</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+        .navbar:hover {
+            opacity: 1;
+        }
+        .logo {
+            color: #e50914;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .back-button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+        .video-player {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .controls {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            transition: opacity 0.3s ease;
+        }
+        .controls:hover {
+            opacity: 1;
+        }
+        .control-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .control-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        .progress-bar {
+            position: fixed;
+            bottom: 70px;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        .progress {
+            height: 100%;
+            background-color: #e50914;
+            width: 0;
+            transition: width 0.1s linear;
+        }
+        .time-display {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .error-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            display: none;
+        }
+        .error-message {
+            background-color: #e50914;
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">NetflixQA</a>
+        <button class="back-button" onclick="goBack()">← Back to Browse</button>
+    </nav>
+
+    <div class="video-container">
+        <!-- Cambia la ruta del video a tu archivo local -->
+        <video class="video-player" id="videoPlayer" controls>
+            <source src="manzana.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+
+    <div class="time-display" id="timeDisplay">00:00:00 / 02:15:00</div>
+
+    <div class="controls">
+        <button class="control-button" onclick="togglePlay()">Play/Pause</button>
+        <button class="control-button" onclick="skip(-10)">-10s</button>
+        <button class="control-button" onclick="skip(10)">+10s</button>
+        <button class="control-button" onclick="toggleMute()">Mute/Unmute</button>
+        <button class="control-button" onclick="toggleFullscreen()">Fullscreen</button>
+    </div>
+
+    <div class="error-overlay" id="errorOverlay">
+        <div class="error-message" id="errorMessage"></div>
+    </div>
+
+    <script>
+        const video = document.getElementById('videoPlayer');
+        const progress = document.getElementById('progress');
+        const timeDisplay = document.getElementById('timeDisplay');
+        const errorOverlay = document.getElementById('errorOverlay');
+        const errorMessage = document.getElementById('errorMessage');
+        let isPlaying = false;
+
+        function goBack() {
+            window.history.back();
+        }
+
+        function togglePlay() {
+            if (video.paused) {
+                video.play();
+                isPlaying = true;
+            } else {
+                video.pause();
+                isPlaying = false;
+            }
+        }
+
+        function skip(seconds) {
+            video.currentTime += seconds;
+        }
+
+        function toggleMute() {
+            video.muted = !video.muted;
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        function updateProgress() {
+            const percent = (video.currentTime / video.duration) * 100;
+            progress.style.width = `${percent}%`;
+
+            const currentTime = formatTime(video.currentTime);
+            const duration = formatTime(video.duration);
+            timeDisplay.textContent = `${currentTime} / ${duration}`;
+        }
+
+        function formatTime(seconds) {
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = Math.floor(seconds % 60);
+            return [h, m, s].map(v => v < 10 ? "0" + v : v).join(":");
+        }
+
+        video.addEventListener('timeupdate', updateProgress);
+    </script>
+</body>
+</html>

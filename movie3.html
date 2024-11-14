@@ -1,0 +1,172 @@
+<html><head>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whispers of Time - NetflixQA</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .back-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+  }
+  .movie-details {
+    display: flex;
+    gap: 2rem;
+  }
+  .movie-poster {
+    flex: 0 0 300px;
+  }
+  .movie-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .movie-info {
+    flex: 1;
+  }
+  .movie-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .movie-metadata {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .movie-rating {
+    background-color: #e50914;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+  .movie-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .play-button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .play-button:hover {
+    background-color: #ff0a16;
+  }
+  .cast-section {
+    margin-top: 2rem;
+  }
+  .cast-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .cast-list {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  .cast-member {
+    flex: 0 0 150px;
+    text-align: center;
+  }
+  .cast-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+  }
+  .cast-name {
+    font-weight: bold;
+  }
+  .cast-character {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  @media (max-width: 768px) {
+    .movie-details {
+      flex-direction: column;
+    }
+    .movie-poster {
+      flex: 0 0 auto;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="location.href='NetflixQA.html'" style="cursor: pointer;">NetflixQA</div>
+    <button class="back-button" onclick="goBack()">← Back</button>
+  </nav>
+
+  <main class="content">
+    <div class="movie-details">
+      <div class="movie-poster">
+        <img src="img/SADWED.jpg" alt="Whispers of Time movie poster">
+      </div>
+      <div class="movie-info">
+        <h1 class="movie-title">Whispers of Time</h1>
+        <div class="movie-metadata">
+          <span class="movie-rating">TV-MA</span>
+          <span>2023</span>
+          <span>2h 15min</span>
+          <span>Drama, Romance, Sci-Fi</span>
+        </div>
+        <p class="movie-description">
+          "Whispers of Time" is a hauntingly beautiful tale that transcends the boundaries of time and space. Set across multiple centuries, this epic romance follows the intertwined destinies of two souls who find each other in different eras, only to be torn apart by the relentless march of time. As they navigate through historical events and futuristic landscapes, their love becomes a force that shapes the very fabric of reality. With stunning visuals, a sweeping musical score, and performances that will touch your heart, "Whispers of Time" explores the depths of human connection and the power of love to echo through eternity.
+        </p>
+       
+        <button class="play-button" onclick="window.location.href='ReproMovie2.html'">Play</button>
+      </div>
+    </div>
+
+    <section class="cast-section">
+      <h2 class="cast-title">Cast</h2>
+      <div class="cast-list">
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=A.S." alt="Aria Starling">
+          <div class="cast-name">Aria Starling</div>
+          <div class="cast-character">Evelyn / Elara / Eve</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=J.T." alt="Jace Thorne">
+          <div class="cast-name">Jace Thorne</div>
+          <div class="cast-character">William / Wren / Wilde</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=L.M." alt="Luna Moonshadow">
+          <div class="cast-name">Luna Moonshadow</div>
+          <div class="cast-character">The Timekeep

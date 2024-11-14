@@ -1,0 +1,262 @@
+<html><head>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galactic Frontiers - NetflixQA</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  .logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .back-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .content {
+    padding: 5rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .show-details {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .show-poster {
+    flex: 0 0 300px;
+  }
+  .show-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .show-info {
+    flex: 1;
+  }
+  .show-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .show-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .show-rating, .show-year, .show-seasons {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+  .show-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .play-button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .play-button:hover {
+    background-color: #f40612;
+  }
+  .cast-section {
+    margin-top: 2rem;
+  }
+  .cast-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .cast-list {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  .cast-member {
+    flex: 0 0 150px;
+    text-align: center;
+  }
+  .cast-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+  }
+  .cast-name {
+    font-weight: bold;
+  }
+  .cast-character {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  @media (max-width: 768px) {
+    .show-details {
+      flex-direction: column;
+    }
+    .show-poster {
+      flex: 0 0 auto;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="location.href='NetflixQA.html'" style="cursor: pointer;">NetflixQA</div>
+    <button class="back-button" onclick="history.back()">← Back</button>
+  </nav>
+
+  <main class="content">
+    <div class="show-details">
+      <div class="show-poster">
+        <img src="img/Galactic Frontiers TV show.jpg" alt="Galactic Frontiers TV show poster">
+      </div>
+      <div class="show-info">
+        <h1 class="show-title">Galactic Frontiers</h1>
+        <div class="show-meta">
+          <span class="show-rating">TV-14</span>
+          <span class="show-year">2023</span>
+          <span class="show-seasons">3 Seasons</span>
+        </div>
+        <p class="show-description">
+          "Galactic Frontiers" is an epic space western that follows the adventures of a ragtag crew of explorers aboard the starship Nebula Nomad. Set in the 26th century, humanity has colonized distant planets, but the far reaches of the galaxy remain a wild and untamed frontier. Captain Zara Vance leads her diverse crew through uncharted space, encountering alien civilizations, cosmic anomalies, and the remnants of ancient galactic empires.
+        </p>
+        <p class="show-description">
+          As they navigate the dangers of deep space and clash with rival factions, the crew of the Nebula Nomad must also confront their own pasts and forge bonds that will be tested in the face of insurmountable odds. With stunning visuals, complex characters, and a blend of high-concept science fiction and gritty frontier drama, "Galactic Frontiers" pushes the boundaries of television storytelling.
+        </p>
+        <button class="play-button" onclick="playShow()">Play</button>
+      </div>
+    </div>
+
+    <section class="cast-section">
+      <h2 class="cast-title">Cast & Characters</h2>
+      <div class="cast-list">
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=A.Z." alt="Alana Zhang" class="cast-photo">
+          <div class="cast-name">Alana Zhang</div>
+          <div class="cast-character">Captain Zara Vance</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=M.R." alt="Marcus Reeves" class="cast-photo">
+          <div class="cast-name">Marcus Reeves</div>
+          <div class="cast-character">Dr. Elias Thorne</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=S.O." alt="Sasha Okoye" class="cast-photo">
+          <div class="cast-name">Sasha Okoye</div>
+          <div class="cast-character">Lt. Kira Nyx</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=J.C." alt="Javier Cruz" class="cast-photo">
+          <div class="cast-name">Javier Cruz</div>
+          <div class="cast-character">Zeke "Wrench" Rodriguez</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=L.N." alt="Lena Novak" class="cast-photo">
+          <div class="cast-name">Lena Novak</div>
+          <div class="cast-character">A.I. ARIA</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function playShow() {
+      // Simulating a loading delay
+      const playButton = document.querySelector('.play-button');
+      playButton.textContent = 'Loading...';
+      playButton.disabled = true;
+      
+      setTimeout(() => {
+        // Intentional error: sometimes the video doesn't load
+        if (Math.random() < 0.3) {
+          alert('Error: Unable to load video. Please try again later.');
+          playButton.textContent = 'Play';
+          playButton.disabled = false;
+        } else {
+          window.location.href = '/watch/show4';
+        }
+      }, 2000 + Math.random() * 3000);
+    }
+
+    // Intentional usability issues
+    window.addEventListener('load', () => {
+      // Randomly misalign some elements
+      const elements = document.querySelectorAll('.show-info > *');
+      elements.forEach(el => {
+        if (Math.random() < 0.3) {
+          el.style.marginLeft = `${Math.random() * 20}px`;
+        }
+      });
+
+      // Occasionally hide the back button
+      if (Math.random() < 0.2) {
+        document.querySelector('.back-button').style.visibility = 'hidden';
+      }
+
+      // Randomly change the order of cast members
+      const castList = document.querySelector('.cast-list');
+      for (let i = castList.children.length; i >= 0; i--) {
+        castList.appendChild(castList.children[Math.random() * i | 0]);
+      }
+    });
+
+    // Simulating network issues with image loading
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      if (Math.random() < 0.3) {
+        const originalSrc = img.src;
+        img.src = 'https://via.placeholder.com/300x450.png?text=Loading...';
+        setTimeout(() => {
+          img.src = originalSrc;
+        }, 3000 + Math.random() * 5000);
+      }
+    });
+
+    // Inconsistent hover effects
+    const castMembers = document.querySelectorAll('.cast-member');
+    castMembers.forEach(member => {
+      member.addEventListener('mouseenter', () => {
+        if (Math.random() < 0.5) {
+          member.style.transform = 'scale(1.1)';
+        }
+      });
+      member.addEventListener('mouseleave', () => {
+        member.style.transform = 'scale(1)';
+      });
+    });
+  </script>
+</body>
+</html>

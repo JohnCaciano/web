@@ -1,0 +1,258 @@
+<html><head>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whimsical Wonders - NetflixQA</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  .logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .content {
+    padding: 5rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .movie-details {
+    display: flex;
+    gap: 2rem;
+  }
+  .movie-poster {
+    flex: 0 0 300px;
+  }
+  .movie-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .movie-info {
+    flex: 1;
+  }
+  .movie-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .movie-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  .movie-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .play-button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .play-button:hover {
+    background-color: #f40612;
+  }
+  .cast-section {
+    margin-top: 3rem;
+  }
+  .cast-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .cast-list {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  .cast-member {
+    flex: 0 0 150px;
+    text-align: center;
+  }
+  .cast-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+  }
+  .cast-name {
+    font-weight: bold;
+  }
+  .cast-character {
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  @media (max-width: 768px) {
+    .movie-details {
+      flex-direction: column;
+    }
+    .movie-poster {
+      flex: 0 0 auto;
+      max-width: 250px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="location.href='NetflixQA.html'" style="cursor: pointer;">NetflixQA</div>
+  </nav>
+
+  <main class="content">
+    <div class="movie-details">
+      <div class="movie-poster">
+        <img src="img/Whimsical Wonders movie poster.jpg" alt="Whimsical Wonders movie poster">
+      </div>
+      <div class="movie-info">
+        <h1 class="movie-title">Whimsical Wonders</h1>
+        <div class="movie-meta">
+          <span>2023</span>
+          <span>PG</span>
+          <span>1h 45min</span>
+          <span>Family, Adventure, Fantasy</span>
+        </div>
+        <p class="movie-description">
+          Step into a world where imagination knows no bounds! "Whimsical Wonders" is a heartwarming family adventure that brings toys to life in ways you've never seen before. Follow the journey of Sophie, a creative young girl who discovers her grandmother's magical toy shop. When night falls, the toys come alive, each with its own personality and dreams. Together with her new friends - a brave tin soldier, a wise teddy bear, and a mischievous jack-in-the-box - Sophie must embark on a fantastic quest to save the toy shop from being turned into a cold, lifeless mall. Along the way, they'll learn valuable lessons about friendship, courage, and the power of imagination. With stunning visuals, catchy songs, and a story that will captivate both children and adults alike, "Whimsical Wonders" is a magical experience that reminds us all of the joy and wonder hidden in everyday objects.
+        </p>
+        <button class="play-button" onclick="playMovie()">Play</button>
+      </div>
+    </div>
+
+    <section class="cast-section">
+      <h2 class="cast-title">Cast</h2>
+      <div class="cast-list">
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=Emma+Thompson" alt="Emma Thompson" class="cast-photo">
+          <div class="cast-name">Emma Thompson</div>
+          <div class="cast-character">Grandma Olive</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=Tom+Holland" alt="Tom Holland" class="cast-photo">
+          <div class="cast-name">Tom Holland</div>
+          <div class="cast-character">Toby (voice)</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=Millie+Bobby+Brown" alt="Millie Bobby Brown" class="cast-photo">
+          <div class="cast-name">Millie Bobby Brown</div>
+          <div class="cast-character">Sophie</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=Ian+McKellen" alt="Ian McKellen" class="cast-photo">
+          <div class="cast-name">Ian McKellen</div>
+          <div class="cast-character">Mr. Whiskers (voice)</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=Zendaya" alt="Zendaya" class="cast-photo">
+          <div class="cast-name">Zendaya</div>
+          <div class="cast-character">Penny (voice)</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Intentional usability errors and quirks
+    function playMovie() {
+      // Simulate occasional playback issues
+      if (Math.random() < 0.3) {
+        alert("Error: Unable to start playback. Please try again later.");
+      } else {
+        window.location.href = "/watch/movie9";
+      }
+    }
+
+    // Inconsistent hover effects on cast members
+    const castMembers = document.querySelectorAll('.cast-member');
+    castMembers.forEach(member => {
+      member.addEventListener('mouseenter', function() {
+        if (Math.random() < 0.5) {
+          this.style.transform = 'scale(1.1)';
+        }
+      });
+      member.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+
+    // Delayed loading of movie description
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        document.querySelector('.movie-description').style.opacity = '0.7';
+      }, 2000);
+    });
+
+    // Random text selection issues
+    document.querySelector('.movie-description').addEventListener('mouseup', function(e) {
+      if (Math.random() < 0.3) {
+        e.preventDefault();
+        alert("Text selection is currently unavailable.");
+      }
+    });
+
+    // Occasional scroll jank
+    window.addEventListener('scroll', function() {
+      if (Math.random() < 0.1) {
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+          document.body.style.overflow = '';
+        }, 500);
+      }
+    });
+
+    // Intermittent cast photo loading issue
+    window.addEventListener('load', function() {
+      const castPhotos = document.querySelectorAll('.cast-photo');
+      castPhotos.forEach(photo => {
+        if (Math.random() < 0.2) {
+          setTimeout(() => {
+            photo.src = "https://via.placeholder.com/100x100.png?text=Not+Found";
+          }, 1000 + Math.random() * 2000);
+        }
+      });
+    });
+
+    // Random focus trap in movie info section
+    const movieInfoSection = document.querySelector('.movie-info');
+    movieInfoSection.addEventListener('focusin', function(e) {
+      if (Math.random() < 0.2) {
+        e.target.addEventListener('keydown', trapFocus);
+      }
+    });
+
+    function trapFocus(e) {
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        alert("Focus is trapped! Refresh the page to continue.");
+      }
+    }
+  </script>
+</body>
+</html>

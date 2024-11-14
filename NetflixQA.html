@@ -1,0 +1,339 @@
+<html><head>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetflixQA - QA Lab Training Platform</title>
+    <style>
+      body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        background-color: #141414;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar {
+        background-color: #000;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+      }
+      .logo {
+        color: #e50914;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      .search-bar {
+        padding: 0.5rem;
+        border: none;
+        background-color: #333;
+        color: #fff;
+      }
+      .user-icon {
+        width: 32px;
+        height: 32px;
+        background-color: #808080;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .content {
+        padding: 5rem 2rem 2rem;
+      }
+      .row {
+        margin-bottom: 2rem;
+      }
+      .row-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .thumbnails {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+      }
+      .thumbnail {
+        flex: 0 0 auto;
+        width: 200px;
+        height: 300px;
+        background-color: #333;
+        cursor: pointer;
+        transition: transform 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+      .thumbnail:hover {
+        transform: scale(1.05);
+      }
+      .thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .thumbnail-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 0.5rem;
+        transform: translateY(100%);
+        transition: transform 0.3s;
+      }
+      .thumbnail:hover .thumbnail-overlay {
+        transform: translateY(0);
+      }
+      .thumbnail-title {
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+      }
+      .thumbnail-description {
+        font-size: 0.8rem;
+        opacity: 0.8;
+      }
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .search-bar {
+          margin-top: 1rem;
+          width: 100%;
+        }
+        .user-icon {
+          margin-top: 1rem;
+        }
+        .thumbnails {
+          flex-wrap: wrap;
+        }
+        .thumbnail {
+          width: 45%;
+          height: 200px;
+        }
+      }
+    </style>
+    </head>
+    <body>
+      <nav class="navbar">
+      
+        <div class="logo" onclick="location.href='categoria1.html'" style="cursor: pointer;">NetflixQA</div>
+
+        <input type="text" class="search-bar" placeholder="Search" aria-label="Search">
+        <div class="user-icon"></div>
+      </nav>
+    
+      <main class="content">
+        <section class="row">
+          <h2 class="row-title">Popular Now</h2>
+          <div class="thumbnails">
+            <div class="thumbnail" onclick="showDetails('movie1')">
+                <img src="img/Cosmic Odyssey.jpg" alt="Cosmic Odyssey movie poster">
+                <div class="thumbnail-overlay">
+                    <div class="thumbnail-title">Cosmic Odyssey</div>
+                    <div class="thumbnail-description">An interstellar journey beyond imagination.</div>
+                </div>
+            </div>
+            
+            <script>
+                // Función para redirigir al detalle de la película
+                function showDetails(pageUrl) {
+                    window.location.href = pageUrl;
+                }
+            </script>
+            
+            <div class="thumbnail" onclick="showDetails('movie2')">
+              <img src="img/Urban Legends.jpg" alt="Urban Legends movie poster">
+              <div class="thumbnail-overlay">
+                <div class="thumbnail-title">Urban Legends</div>
+                <div class="thumbnail-description">Myths come alive in this thrilling adventure.</div>
+              </div>
+            </div>
+            <div class="thumbnail" onclick="showDetails('movie3')">
+              <img src="img/SADWED.jpg" alt="Whispers of Time movie poster">
+              <div class="thumbnail-overlay">
+                <div class="thumbnail-title">Whispers of Time</div>
+                <div class="thumbnail-description">A haunting tale of love across centuries.</div>
+              </div>
+            </div>
+            <div class="thumbnail" onclick="showDetails('movie4')">
+              <img src="img/Neon Nights.jpg" alt="Neon Nights movie poster">
+              <div class="thumbnail-overlay">
+                <div class="thumbnail-title">Neon Nights</div>
+                <div class="thumbnail-description">Cyberpunk thriller in a dystopian future.</div>
+              </div>
+            </div>
+            <div class="thumbnail" onclick="showDetails('movie5')">
+              <img src="img/Echoes of Eternity.jpg" alt="Echoes of Eternity movie poster">
+              <div class="thumbnail-overlay">
+                <div class="thumbnail-title">Echoes of Eternity</div>
+                <div class="thumbnail-description">Epic fantasy saga of gods and mortals.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+    
+        <section class="row">
+          <h2 class="row-title">Recently Added</h2>
+          <div class="thumbnails">
+            <div class="thumbnail" onclick="showDetails('show1')">
+              <img src="img/Quantum Leaps.jpg" alt="Quantum Leaps TV show poster">
+              <div class="thumbnail-overlay">
+                <div class="thumbnail-title">Quantum Leaps</div>
+                <div class="thumbnail-description">Mind-bending sci-fi series exploring parallel universes.</div>
+              </div>
+            </div>
+            <div class="thumbnail" onclick="showDetails('show2')">
+              <img src="img/Culinary Chronicles TV.jpg" alt="Culinary Chronicles TV show poster">
+              <div class="thumbnail-overlay">
+                <div class="thumbnail-title">Culinary Chronicles</div>
+                <div class="thumbnail-description">Globe-trotting chefs uncover gastronomic treasures.</div>
+              </div>
+            </div>
+            <div class="thumbnail" onclick="showDetails('show3')">
+              <img src="img/Midnight Mysteries TV show.jpg" alt="Midnight Mysteries TV show poster">
+              <div class="thumbnail-overlay">
+                <div class="thumbnail-title">Midnight Mysteries</div>
+                <div class="thumbnail-description">Supernatural detective series set in Victorian London.</div>
+              </div>
+            </div>
+            <div class="thumbnail" onclick="showDetails('show4')">
+              <img src="img/Galactic Frontiers TV show.jpg" alt="Galactic Frontiers TV show poster">
+              <div class="thumbnail-overlay">
+                <div class="thumbnail-title">Galactic Frontiers</div>
+                <div class="thumbnail-description">Space western following a ragtag crew of explorers.</div>
+              </div>
+            </div>
+            <div class="thumbnail" onclick="showDetails('show5')">
+              <img src="img/Dynastic Reign TV show.jpg" alt="Dynastic Reign TV show poster">
+              <div class="thumbnail-overlay">
+                <div class="thumbnail-title">Dynastic Reign</div>
+                <div class="thumbnail-description">Political intrigue in a fictional medieval kingdom.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+    
+        <section class="row">
+          <h2 class="row-title">Top Rated</h2>
+          <div class="thumbnails">
+            <div class="thumbnail" onclick="showDetails('movie6')">
+              <img src="img/Eternal Sunshine movie.jpg" alt="Eternal Sunshine movie poster">
+              <div class="thumbnail-overlay">
+                <div class="thumbnail-title">Eternal Sunshine</div>
+                <div class="thumbnail-description">Heartwarming drama about finding joy in life's simple moments.</div>
+              </div>
+            </div>
+            <div class="thumbnail" onclick="showDetails('movie7')">
+              <img src="img/Chromatic Dreams movie poster.jpg" alt="Chromatic Dreams movie poster">
+              <div class="thumbnail-overlay">
+                <div class="thumbnail-title">Chromatic Dreams</div>
+                <div class="thumbnail-description">Visually stunning animated feature exploring human creativity.</div>
+              </div>
+            </div>
+            <div class="thumbnail" onclick="showDetails('movie8')">
+              <img src="img/Velocity Surge movie poster.jpg" alt="Velocity Surge movie poster">
+              <div class="thumbnail-overlay">
+                <div class="thumbnail-title">Velocity Surge</div>
+                <div class="thumbnail-description">High-octane racing thriller with a twist of espionage.</div>
+              </div>
+            </div>
+            <div class="thumbnail" onclick="showDetails('movie9')">
+              <img src="img/llowly.png" alt="Whimsical Wonders movie poster">
+              <div class="thumbnail-overlay">
+                <div class="thumbnail-title">Whimsical Wonders</div>
+                <div class="thumbnail-description">Magical family adventure in a world of living toys.</div>
+              </div>
+            </div>
+            <div class="thumbnail" onclick="showDetails('movie10')">
+              <img src="img/Harmonic Convergence movie.jpg" alt="Harmonic Convergence movie poster">
+              <div class="thumbnail-overlay">
+                <div class="thumbnail-title">Harmonic Convergence</div>
+                <div class="thumbnail-description">Musical drama exploring the power of music to unite cultures.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    
+      <script>
+        // Intentional usability errors
+        document.querySelector('.search-bar').addEventListener('keyup', function(e) {
+          if (e.key === 'Enter') {
+            // Simulate search with occasional failures
+            if (Math.random() < 0.3) {
+              console.log('Search failed silently');
+            } else {
+              alert('Search results for: ' + this.value);
+            }
+          }
+        });
+    
+      function showDetails(movieId) {
+    // Simulate loading delay
+    setTimeout(() => {
+        // Redirigir a la página correspondiente de cada película sin duplicar 'LabQA' en la ruta
+        window.location.href = movieId + '.html';
+    }, Math.random() < 0.3 ? 3000 : 100);
+}
+
+    
+        // Misalign category headers
+        window.addEventListener('load', function() {
+          const titles = document.querySelectorAll('.row-title');
+          titles.forEach(title => {
+            if (Math.random() < 0.5) {
+              title.style.marginLeft = (Math.random() * 50) + 'px';
+            }
+          });
+        });
+    
+        // Mobile usability issues
+        if (window.innerWidth <= 768) {
+          const thumbnails = document.querySelectorAll('.thumbnail');
+          thumbnails.forEach(thumb => {
+            thumb.style.width = (Math.random() * 30 + 70) + '%';
+          });
+        }
+    
+        // Keyboard navigation issues
+        let currentFocus = -1;
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Tab') {
+            e.preventDefault();
+            const focusableElements = document.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            currentFocus = (currentFocus + 1) % focusableElements.length;
+            if (Math.random() < 0.2) {
+              currentFocus = (currentFocus + 1) % focusableElements.length; // Skip elements randomly
+            }
+            focusableElements[currentFocus].focus();
+          }
+        });
+    
+        // Inconsistent hover behavior
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        thumbnails.forEach(thumb => {
+          thumb.addEventListener('mouseenter', function() {
+            if (Math.random() < 0.2) {
+              this.querySelector('.thumbnail-overlay').style.transform = 'translateY(100%)';
+            }
+          });
+        });
+    
+        // Delayed image loading
+        window.addEventListener('load', function() {
+          const images = document.querySelectorAll('img');
+          images.forEach(img => {
+            if (Math.random() < 0.3) {
+              setTimeout(() => {
+                img.src = img.src;
+              }, 2000 + Math.random() * 3000);
+            }
+          });
+        });
+      </script>
+    </body>
+    </html>

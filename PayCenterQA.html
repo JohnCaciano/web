@@ -1,0 +1,355 @@
+<html><head><base href="." /><title>Lab PayCenter QA</title><meta charset="UTF-8">
+<style>
+:root {
+    --primary: #0056b3;
+    --secondary: #ff6b00;
+    --light: #ffffff;
+    --gray: #f8f9fa;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--gray);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}
+
+.btn {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #003d82;
+}
+
+.hidden {
+    display: none;
+}
+
+.service-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 2rem;
+    display: block;
+    margin: 0 auto 2rem;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+}
+
+.error-message {
+    color: red;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-container">
+        <svg class="logo" viewBox="0 0 200 50">
+            <!-- Simplified Teleperformance logo placeholder -->
+            <text x="10" y="30" fill="var(--primary)" font-size="20">PayCenter  QA </text>
+        </svg>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn">Iniciar Sesión</button>
+            <div id="loginError" class="error-message hidden"></div>
+        </form>
+    </div>
+
+    <!-- Service Selection Screen -->
+    <div id="serviceScreen" class="service-container hidden">
+        <h2>Selección de Servicio</h2>
+        <div class="form-group">
+            <label for="serviceType">Tipo de Servicio:</label>
+            <select id="serviceType" class="form-control">
+                <option value="">Seleccione un servicio</option>
+                <option value="internet">Internet</option>
+                <option value="electricidad">Electricidad</option>
+                <option value="agua">Agua</option>
+                <option value="gas">Gas</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="billNumber">Número de Factura:</label>
+            <input type="text" id="billNumber" class="form-control">
+            <div id="billError" class="error-message hidden"></div>
+        </div>
+        <div id="amountSection" class="form-group hidden">
+            <label>Monto a Pagar:</label>
+            <div id="amount" class="form-control"></div>
+        </div>
+        <div id="paymentSection" class="form-group hidden">
+            <label>Medios de Pago:</label>
+            <select id="paymentMethod" class="form-control">
+                <option value="">Seleccione método de pago</option>
+                <option value="debito">Tarjeta Débito</option>
+                <option value="pse">PSE</option>
+                <option value="nequi">Nequi</option>
+                <option value="daviplata">Daviplata</option>
+            </select>
+            <div id="bankSection" class="form-group hidden">
+                <select id="bankList" class="form-control">
+                    <option value="banco1">Banco 1</option>
+                    <option value="banco2">Banco 2</option>
+                    <option value="banco3">Banco 3</option>
+                    <option value="banco4">Banco 4</option>
+                    <option value="banco5">Banco 5</option>
+                </select>
+            </div>
+            <div id="phoneSection" class="form-group hidden">
+                <input type="tel" id="phoneNumber" class="form-control" placeholder="Número de teléfono">
+            </div>
+        </div>
+        <button id="confirmPayment" class="btn hidden">Confirmar Pago</button>
+    </div>
+</div>
+
+<!-- Modals -->
+<div id="confirmationModal" class="modal">
+    <div class="modal-content">
+        <h3>Confirmar Pago</h3>
+        <p>¿Está seguro que desea realizar el pago?</p>
+        <div class="modal-buttons">
+            <button class="btn" id="confirmBtn">Confirmar</button>
+            <button class="btn btn-secondary" id="cancelBtn">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<div id="successModal" class="modal">
+    <div class="modal-content">
+        <h3>Pago Exitoso</h3>
+        <p>Su pago fue exitoso, gracias por su amable colaboración.</p>
+        <p>¿Desea pagar otro servicio?</p>
+        <div class="modal-buttons">
+            <button class="btn" id="yesBtn">Sí</button>
+            <button class="btn btn-secondary" id="noBtn">No</button>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const credentials = {
+        username: 'adminqa',
+        password: '16102024'
+    };
+
+    // Login Form Handler
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const username = document.getElementById('usuario').value;
+        const password = document.getElementById('password').value;
+
+        if (username === credentials.username && password === credentials.password) {
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('serviceScreen').classList.remove('hidden');
+        } else {
+            document.getElementById('loginError').textContent = 'Credenciales inválidas';
+            document.getElementById('loginError').classList.remove('hidden');
+        }
+    });
+
+    // Bill Number Validation
+    document.getElementById('billNumber').addEventListener('input', function(e) {
+        const billNumber = e.target.value;
+        const isValid = validateBillNumber(billNumber);
+        const billError = document.getElementById('billError');
+        const amountSection = document.getElementById('amountSection');
+        const paymentSection = document.getElementById('paymentSection');
+        const confirmPayment = document.getElementById('confirmPayment');
+
+        if (isValid) {
+            billError.classList.add('hidden');
+            amountSection.classList.remove('hidden');
+            paymentSection.classList.remove('hidden');
+            confirmPayment.classList.remove('hidden');
+            displayAmount();
+            checkPaymentDueDate();
+        } else {
+            billError.textContent = "El número de factura no coincide, por favor dígítelo nuevamente";
+            billError.classList.remove('hidden');
+            amountSection.classList.add('hidden');
+            paymentSection.classList.add('hidden');
+            confirmPayment.classList.add('hidden');
+        }
+    });
+
+    function validateBillNumber(number) {
+        if (number.length < 6 || number.length > 8) return false;
+        if (number[0] !== '1') return false;
+        if (number.endsWith('8')) return false;
+        return true;
+    }
+
+    function displayAmount() {
+        const service = document.getElementById('serviceType').value;
+        const amountElement = document.getElementById('amount');
+        let min, max;
+
+        if (service === 'gas' || service === 'agua') {
+            min = 10000;
+            max = 50000;
+        } else {
+            min = 40000;
+            max = 100000;
+        }
+
+        const amount = Math.floor(Math.random() * (max - min + 1) + min);
+        amountElement.textContent = `$${amount.toLocaleString('es-CO')} COP`;
+    }
+
+    function checkPaymentDueDate() {
+        const today = new Date();
+        const dayOfMonth = today.getDate();
+        
+        if (dayOfMonth > 5) {
+            const daysOverdue = dayOfMonth - 5;
+            alert(`Su pago está atrasado por ${daysOverdue} días.`);
+        }
+    }
+
+    // Payment Method Handler
+    document.getElementById('paymentMethod').addEventListener('change', function(e) {
+        const method = e.target.value;
+        const bankSection = document.getElementById('bankSection');
+        const phoneSection = document.getElementById('phoneSection');
+
+        bankSection.classList.add('hidden');
+        phoneSection.classList.add('hidden');
+
+        if (method === 'debito') {
+            bankSection.classList.remove('hidden');
+        } else if (['pse', 'nequi', 'daviplata'].includes(method)) {
+            phoneSection.classList.remove('hidden');
+        }
+    });
+
+    // Confirmation Flow
+    document.getElementById('confirmPayment').addEventListener('click', function() {
+        document.getElementById('confirmationModal').style.display = 'flex';
+    });
+
+    document.getElementById('confirmBtn').addEventListener('click', function() {
+        document.getElementById('confirmationModal').style.display = 'none';
+        document.getElementById('successModal').style.display = 'flex';
+    });
+
+    document.getElementById('cancelBtn').addEventListener('click', function() {
+        document.getElementById('confirmationModal').style.display = 'none';
+        alert('Por favor vuelva a confirmar sus datos e inténtelo nuevamente.');
+    });
+
+    document.getElementById('yesBtn').addEventListener('click', function() {
+        document.getElementById('successModal').style.display = 'none';
+        resetForm();
+    });
+
+    document.getElementById('noBtn').addEventListener('click', function() {
+        document.getElementById('successModal').style.display = 'none';
+        document.getElementById('serviceScreen').classList.add('hidden');
+        document.getElementById('loginScreen').classList.remove('hidden');
+        resetForm();
+    });
+
+    function resetForm() {
+        document.getElementById('serviceType').value = '';
+        document.getElementById('billNumber').value = '';
+        document.getElementById('amountSection').classList.add('hidden');
+        document.getElementById('paymentSection').classList.add('hidden');
+        document.getElementById('confirmPayment').classList.add('hidden');
+        document.getElementById('bankSection').classList.add('hidden');
+        document.getElementById('phoneSection').classList.add('hidden');
+    }
+});
+</script>
+</body></html>

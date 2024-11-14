@@ -1,0 +1,161 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eef5ff; /* Azul claro para el fondo */
+    color: #333;
+}
+
+/* Estilo del header */
+header {
+    background-color: #005bb5; /* Azul oscuro para el fondo del header */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20px auto;
+    box-shadow: 0 0 15px rgba(0, 91, 181, 0.5); /* Sombra azul */
+    background-color: #fff;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Menú de navegación */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #003f7f; /* Azul más oscuro para el fondo del menú */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+nav .categorias {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav .categorias li {
+    margin-bottom: 15px;
+}
+
+nav .categorias li a {
+    display: block;
+    padding: 12px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: #0073e6; /* Azul intermedio */
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav .categorias li a:hover {
+    background-color: #005bb5; /* Azul oscuro al pasar el mouse */
+    transform: scale(1.05); /* Efecto de zoom */
+}
+
+main {
+    margin-left: 220px;
+    padding: 80px 20px 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Sección de bienvenida */
+.bienvenida {
+    background-color: #e3f2fd;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bienvenida h2 {
+    font-size: 2.2rem;
+    color: #005bb5;
+    margin-bottom: 15px;
+}
+
+.bienvenida h3 {
+    font-size: 1.8rem;
+    color: #006bb3;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.bienvenida p, .bienvenida li {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.bienvenida ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.bienvenida strong {
+    color: #005bb5;
+}
+
+/* Estilo del título con efecto zoom */
+#zoom-title {
+    font-size: 3rem;
+    text-align: center;
+    color: #003f7f;
+    animation: zoom 2s infinite;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+}
+
+/* Estilo del footer */
+footer {
+    background-color: #005bb5;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+

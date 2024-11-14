@@ -1,0 +1,218 @@
+<html><head>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quantum Leaps - NetflixQA</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  .logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .content {
+    padding: 5rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .show-details {
+    display: flex;
+    gap: 2rem;
+  }
+  .show-poster {
+    flex: 0 0 300px;
+  }
+  .show-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .show-info {
+    flex: 1;
+  }
+  .show-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .show-metadata {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .show-rating, .show-year, .show-seasons {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+  .show-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .play-button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .play-button:hover {
+    background-color: #f40612;
+  }
+  .episode-list {
+    margin-top: 2rem;
+  }
+  .episode {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .episode:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .episode-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  .episode-description {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  @media (max-width: 768px) {
+    .show-details {
+      flex-direction: column;
+    }
+    .show-poster {
+      flex: 0 0 auto;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="location.href='NetflixQA.html'" style="cursor: pointer;">NetflixQA</div>
+  </nav>
+
+  <main class="content">
+    <div class="show-details">
+      <div class="show-poster">
+        <img src="img/Quantum Leaps.jpg" alt="Quantum Leaps TV show poster">
+      </div>
+      <div class="show-info">
+        <h1 class="show-title">Quantum Leaps</h1>
+        <div class="show-metadata">
+          <span class="show-rating">TV-MA</span>
+          <span class="show-year">2023</span>
+          <span class="show-seasons">2 Seasons</span>
+        </div>
+        <p class="show-description">
+          Quantum Leaps is a mind-bending sci-fi series that explores the concept of parallel universes and the consequences of interdimensional travel. Dr. Samantha Wells, a brilliant quantum physicist, accidentally discovers a way to leap between realities. Each episode follows her attempts to navigate unfamiliar versions of her life while trying to find her way back to her original timeline. The show delves into complex scientific theories, ethical dilemmas, and the butterfly effect of small changes across multiple dimensions.
+        </p>
+        <button class="play-button" onclick="playShow()">Play</button>
+      </div>
+    </div>
+
+    <div class="episode-list">
+      <h2>Season 1 Episodes</h2>
+      <div class="episode" onclick="playEpisode(1, 1)">
+        <div class="episode-title">1. The First Leap</div>
+        <div class="episode-description">Dr. Samantha Wells makes an accidental breakthrough in quantum mechanics, leading to her first interdimensional jump.</div>
+      </div>
+      <div class="episode" onclick="playEpisode(1, 2)">
+        <div class="episode-title">2. Butterfly Effects</div>
+        <div class="episode-description">Samantha discovers the far-reaching consequences of her actions in a parallel universe where she never became a scientist.</div>
+      </div>
+      <div class="episode" onclick="playEpisode(1, 3)">
+        <div class="episode-title">3. Quantum Entanglement</div>
+        <div class="episode-description">A leap goes wrong, leaving Samantha's consciousness split between two realities.</div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function playShow() {
+      // Intentional error: sometimes the play button doesn't work
+      if (Math.random() < 0.3) {
+        console.log("Play button clicked but no action taken");
+      } else {
+        alert("Playing Quantum Leaps");
+      }
+    }
+
+    function playEpisode(season, episode) {
+      // Intentional error: episode playback has a chance to start at a random timestamp
+      const randomStart = Math.random() < 0.2 ? Math.floor(Math.random() * 40) + 1 : 0;
+      alert(`Playing Season ${season}, Episode ${episode}${randomStart > 0 ? ` starting at ${randomStart} minutes` : ''}`);
+    }
+
+    // Intentional error: randomly hide episode descriptions
+    window.addEventListener('load', function() {
+      const descriptions = document.querySelectorAll('.episode-description');
+      descriptions.forEach(desc => {
+        if (Math.random() < 0.3) {
+          desc.style.display = 'none';
+        }
+      });
+    });
+
+    // Intentional error: inconsistent hover effects
+    const episodes = document.querySelectorAll('.episode');
+    episodes.forEach(ep => {
+      ep.addEventListener('mouseenter', function() {
+        if (Math.random() < 0.5) {
+          this.style.transform = 'scale(1.05)';
+        }
+      });
+      ep.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+
+    // Intentional error: delayed loading of show description
+    setTimeout(() => {
+      const description = document.querySelector('.show-description');
+      description.style.opacity = '0';
+      setTimeout(() => {
+        description.textContent += " As Samantha leaps through different realities, she encounters alternate versions of herself, her loved ones, and even historical figures, forcing her to question the nature of identity, free will, and the fabric of spacetime itself.";
+        description.style.opacity = '1';
+      }, 2000);
+    }, 1000);
+
+    // Intentional error: randomly change the play button text
+    setInterval(() => {
+      const playButton = document.querySelector('.play-button');
+      if (Math.random() < 0.1) {
+        playButton.textContent = ['Play', 'Start', 'Watch', 'Begin'][Math.floor(Math.random() * 4)];
+      }
+    }, 5000);
+
+  </script>
+</body>
+</html>

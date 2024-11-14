@@ -1,0 +1,252 @@
+<html><head>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Echoes of Eternity - NetflixQA</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  .logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .content {
+    padding: 5rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .movie-details {
+    display: flex;
+    gap: 2rem;
+  }
+  .movie-poster {
+    flex: 0 0 300px;
+  }
+  .movie-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .movie-info {
+    flex: 1;
+  }
+  .movie-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .movie-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  .movie-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  .play-button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .play-button:hover {
+    background-color: #f40612;
+  }
+  .cast-list {
+    margin-top: 2rem;
+  }
+  .cast-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .cast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  .cast-member {
+    text-align: center;
+  }
+  .cast-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+  }
+  .cast-name {
+    font-weight: bold;
+  }
+  .cast-character {
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  @media (max-width: 768px) {
+    .movie-details {
+      flex-direction: column;
+    }
+    .movie-poster {
+      flex: 0 0 auto;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="location.href='NetflixQA.html'" style="cursor: pointer;">NetflixQA</div>
+  </nav>
+
+  <main class="content">
+    <div class="movie-details">
+      <div class="movie-poster">
+        <img src="img/Eternal Sunshine movie.jpg" alt="Echoes of Eternity movie poster">
+      </div>
+      <div class="movie-info">
+        <h1 class="movie-title">Echoes of Eternity</h1>
+        <div class="movie-meta">
+          <span>2023</span>
+          <span>4h 12min</span>
+          <span>PG-13</span>
+          <span>Fantasy, Adventure, Drama</span>
+        </div>
+        <p class="movie-description">
+          "Echoes of Eternity" is an epic fantasy saga that weaves together the fates of gods and mortals in a breathtaking tapestry of myth and magic. Set in the mystical realm of Aethoria, where the veil between the divine and mortal worlds grows thin, the story follows the journey of Lyra, a young orphan who discovers she holds the key to preventing an ancient prophecy of destruction.
+
+          As Lyra navigates a world of shapeshifting deities, long-forgotten magic, and treacherous political alliances, she must come to terms with her own mysterious heritage and the power that lies dormant within her. Joined by a cast of unforgettable characters – including the roguish demigod Caius, the wise but enigmatic sorceress Elara, and the loyal warrior Thorne – Lyra's quest will take her from the depths of shadow-haunted forests to the peaks of mountains where the gods themselves dwell.
+
+          With stunning visual effects, sweeping orchestral scores, and performances that bring depth and humanity to even the most fantastical characters, "Echoes of Eternity" is a cinematic experience that will transport viewers to a world where every choice echoes through the ages, and the fate of existence itself hangs in the balance.
+        </p>
+   
+        <button class="play-button" onclick="window.location.href='ReproMovie5.html'">Play</button>
+      </div>
+    </div>
+
+    <div class="cast-list">
+      <h2 class="cast-title">Cast</h2>
+      <div class="cast-grid">
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=A.S." alt="Actress's headshot">
+          <div class="cast-name">Anya Silverstone</div>
+          <div class="cast-character">Lyra</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=T.H." alt="Actor's headshot">
+          <div class="cast-name">Tom Hiddleston</div>
+          <div class="cast-character">Caius</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=C.B." alt="Actress's headshot">
+          <div class="cast-name">Cate Blanchett</div>
+          <div class="cast-character">Elara</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=I.E." alt="Actor's headshot">
+          <div class="cast-name">Idris Elba</div>
+          <div class="cast-character">Thorne</div>
+        </div>
+        <div class="cast-member">
+          <img src="https://via.placeholder.com/100x100.png?text=E.G." alt="Actress's headshot">
+          <div class="cast-name">Eva Green</div>
+          <div class="cast-character">Morana, Goddess of Shadows</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Intentional usability errors and quirks
+    function playMovie() {
+      // Simulate random playback issues
+      const issues = [
+        "Buffering...",
+        "Error: Content not available in your region",
+        "Unexpected playback error occurred",
+        "Loading subtitles...",
+        "Audio out of sync, please wait..."
+      ];
+      
+      if (Math.random() < 0.7) {
+        alert(issues[Math.floor(Math.random() * issues.length)]);
+      } else {
+        alert("Now playing: Echoes of Eternity");
+      }
+    }
+
+    // Delayed loading of movie description
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        document.querySelector('.movie-description').style.opacity = '0.7';
+      }, 2000);
+    });
+
+    // Random font size changes
+    setInterval(() => {
+      const elements = document.querySelectorAll('.movie-meta span');
+      elements[Math.floor(Math.random() * elements.length)].style.fontSize = 
+        (Math.random() * 0.5 + 0.7) + 'rem';
+    }, 5000);
+
+    // Inconsistent hover effects on cast members
+    document.querySelectorAll('.cast-member').forEach(member => {
+      member.addEventListener('mouseenter', function() {
+        if (Math.random() < 0.3) {
+          this.style.transform = 'scale(1.1)';
+        }
+      });
+      member.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+
+    // Occasional misalignment of cast grid
+    if (Math.random() < 0.5) {
+      document.querySelector('.cast-grid').style.alignItems = 'flex-start';
+    }
+
+    // Random removal of cast members (simulating loading issues)
+    window.addEventListener('load', function() {
+      const castMembers = document.querySelectorAll('.cast-member');
+      castMembers.forEach(member => {
+        if (Math.random() < 0.2) {
+          member.style.display = 'none';
+        }
+      });
+    });
+
+    // Intermittent scrolling issues
+    let isScrollingEnabled = true;
+    setInterval(() => {
+      isScrollingEnabled = !isScrollingEnabled;
+      document.body.style.overflow = isScrollingEnabled ? 'auto' : 'hidden';
+    }, 10000);
+  </script>
+</body>
+</html>

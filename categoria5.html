@@ -1,0 +1,633 @@
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MercadoLibre Clon - Productos y Carrito</title>
+    <style>
+      :root {
+        --primary-color: #085cbb;
+        --secondary-color: #3032d6;
+        --text-color: #4e4747;
+        --background-color: #ebebeb;
+        --card-background: #ffffff;
+          box-shadow: 0 0 10px 5px yellow;
+      }
+    
+      body {
+        font-family: 'Proxima Nova', -apple-system, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+    
+      header {
+        background-color: var(--primary-color);
+        padding: 10px 20px;
+        box-shadow: 0 1px 0 0 rgba(0,0,0,.1);
+      }
+    
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--text-color);
+        text-decoration: none;
+      }
+    
+      .search-bar {
+        flex-grow: 1;
+        margin: 0 20px;
+      }
+    
+      .search-bar input {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 2px;
+      }
+    
+      nav {
+        background-color: var(--primary-color);
+        padding: 10px 0;
+        box-shadow: 0 1px 0 0 rgba(0,0,0,.1);
+      }
+    
+      nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    
+      nav a {
+        color: var(--text-color);
+       
+        padding: 5px 10px;
+        font-size: 14px;
+      }
+    
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+    
+      .hero {
+        background-color: var(--card-background);
+        padding: 40px 20px;
+        text-align: center;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+      }
+    
+      .hero h1 {
+        font-size: 26px;
+        margin-bottom: 10px;
+        color: var(--text-color);
+      }
+    
+      .hero p {
+        font-size: 16px;
+        color: #666;
+      }
+    
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+    
+      .product-card {
+        background-color: var(--card-background);
+        border-radius: 4px;
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+        padding: 16px;
+        transition: box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+    
+      .product-card:hover {
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+    
+      .product-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 12px;
+      }
+    
+      .product-card h2 {
+        margin: 10px 0;
+        font-size: 16px;
+        font-weight: 400;
+        flex-grow: 1;
+      }
+    
+      .product-card .price {
+        font-weight: 400;
+        color: var(--text-color);
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+    
+      .product-card .shipping {
+        color: #00a650;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+    
+      .btn {
+        background-color: var(--secondary-color);
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 14px;
+        text-align: center;
+      }
+    
+      .btn:hover {
+        background-color: #2968c8;
+      }
+    
+      .btn-outline {
+        background-color: transparent;
+        border: 1px solid var(--secondary-color);
+        color: var(--secondary-color);
+      }
+    
+      .btn-outline:hover {
+        background-color: var(--secondary-color);
+        color: white;
+      }
+    
+      .cart {
+        background-color: var(--card-background);
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+      }
+    
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        padding: 10px 0;
+      }
+    
+      .cart-item-details {
+        display: flex;
+        align-items: center;
+      }
+    
+      .cart-item-image {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        margin-right: 10px;
+        border-radius: 4px;
+      }
+    
+      .cart-total {
+        font-weight: bold;
+        font-size: 18px;
+        margin-top: 20px;
+        text-align: right;
+      }
+    
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--card-background);
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        z-index: 1000;
+        display: none;
+      }
+    
+      .popup-content {
+        text-align: center;
+      }
+    
+      .popup-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        font-size: 18px;
+      }
+    
+      .categories {
+        background-color: var(--card-background);
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+        margin-bottom: 20px;
+      }
+    
+      .categories h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+    
+      .categories ul {
+        list-style-type: none;
+        padding: 0;
+      }
+    
+      .categories li {
+        margin-bottom: 5px;
+      }
+    
+      .categories a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 14px;
+      }
+    
+      .categories a:hover {
+        color: var(--secondary-color);
+      }
+    
+      .product-detail {
+        display: flex;
+        background-color: var(--card-background);
+        border-radius: 4px;
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+    
+      .product-image {
+        flex: 1;
+        max-width: 400px;
+      }
+    
+      .product-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+      }
+    
+      .product-info {
+        flex: 1;
+        padding-left: 20px;
+      }
+    
+      .product-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+    
+      .product-price {
+        font-size: 32px;
+        font-weight: bold;
+        color: var(--text-color);
+        margin-bottom: 15px;
+      }
+    
+      .product-description {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+    
+      .quantity-selector {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+    
+      .quantity-selector button {
+        background-color: var(--secondary-color);
+        color: white;
+        border: none;
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+    
+      .quantity-selector input {
+        width: 50px;
+        height: 30px;
+        text-align: center;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        margin: 0 10px;
+      }
+    
+      .add-to-cart-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+      }
+
+      .logo {
+  display: inline-block;
+  background-image: url('img/1Logo QAmercado.jpeg'); /* Ruta de la imagen del logo */
+  background-size: cover; /* Cubre el área del contenedor circular */
+  background-position: center; /* Centra la imagen dentro del contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  width: 100px; /* Ajusta el tamaño del logo */
+  height: 100px; /* La altura debe ser igual al ancho para hacer un círculo */
+  border-radius: 50%; /* Hace que el logo tenga forma circular */
+  box-shadow: 0 0 15px 5px yellow; /* Aplica una sombra de color amarillo */
+  text-indent: -9999px; /* Oculta el texto "Mercado QA" */
+  overflow: hidden; /* Asegura que no se vea contenido extra */
+}
+
+   
+
+    </style>
+    </head>
+    <body>
+      <header>
+        <div class="header-content">
+          <a href="img/1Logo QAmercado.jpeg" class="logo">Mercado QA</a>
+          <div class="search-bar">
+            <input type="text" placeholder="Buscar productos, marcas y más...">
+          </div>
+          <nav>
+            <a href="#" id="cart-link">Carrito</a>
+            <a href="index.html">Mi cuenta</a>
+          </nav>
+        </div>
+      </header>
+      
+      <nav>
+        <div class="container">
+          <a href="#" id="products-link">Productos</a>
+          <a href="#">Ofertas</a>
+          <a href="#">Vender</a>
+          <a href="#">Ayuda</a>
+        </div>
+      </nav>
+    
+      <div class="container">
+        <div id="products-page">
+          <section class="hero">
+            <h1>Bienvenido a Nuestra Tienda</h1>
+            <p>Encuentra los mejores productos a los mejores precios.</p>
+          </section>
+    
+          <div class="row">
+            <div class="col-3">
+              <div class="categories">
+                <h3>Categorías</h3>
+                <ul>
+                  <li><a href="#">Electrónica</a></li>
+                  <li><a href="#">Ropa y Accesorios</a></li>
+                  <li><a href="#">Hogar y Muebles</a></li>
+                  <li><a href="#">Deportes y Fitness</a></li>
+                  <li><a href="#">Juguetes y Bebés</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-9">
+              <section class="products">
+                <div class="product-card">
+                  <img src="img/lentes.jpeg" alt="Lentes de hombre, estilo moderno y elegante" width="200" height="200">
+                  <h2>Lentes Hombre</h2>
+                  <p class="price">$99.99</p>
+                  <p class="shipping">Envío gratis</p>
+                  <button class="btn" data-product-name="Lentes Hombre" data-price="99.99" data-image="">Agregar al Carrito</button>
+                </div>
+                <div class="product-card">
+                  <img src="img/zapatos.jpeg" alt="Zapato formal de cuero negro" width="200" height="200">
+                  <h2>Zapato Formal</h2>
+                  <p class="price">$149.99</p>
+                  <p class="shipping">Envío gratis</p>
+                  <button class="btn" data-product-name="Zapato Formal" data-price="149.99" data-image="">Agregar al Carrito</button>
+                </div>
+                <div class="product-card">
+                  <img src="img/libro  2.jpeg" alt="Libro de texto sobre Aseguramiento de Calidad" width="200" height="200">
+                  <h2>Libro Texto QA</h2>
+                  <p class="price">$199.99</p>
+                  <p class="shipping">Envío gratis</p>
+                  <button class="btn" data-product-name="Libro Texto QA" data-price="199.99" data-image="">Agregar al Carrito</button>
+                </div>
+                <div class="product-card">
+                  <img src="img/reloj 2.jpeg" alt="Reloj analógico clásico con correa de cuero" width="200" height="200">
+                  <h2>Reloj Analógico</h2>
+                  <p class="price">$649.99</p>
+                  <p class="shipping">Envío gratis</p>
+                  <button class="btn" data-product-name="Reloj Analógico" data-price="649.99" data-image="">Agregar al Carrito</button>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+    
+        <div id="product-detail-page" style="display: none;">
+          <div class="product-detail">
+            <div class="product-image">
+              <img src="img/libro  2.jpeg" alt="Imagen del producto" id="detail-image">
+            </div>
+            <div class="product-info">
+              <h1 class="product-title" id="detail-title"></h1>
+              <p class="product-price" id="detail-price"></p>
+              <p class="shipping">Envío gratis</p>
+              <p class="product-description" id="detail-description"></p>
+              <div class="quantity-selector">
+                <button onclick="decreaseQuantity()">-</button>
+                <input type="number" id="quantity" value="1" min="1">
+                <button onclick="increaseQuantity()">+</button>
+              </div>
+              <button class="btn add-to-cart-btn" onclick="addToCartFromDetail()">Agregar al carrito</button>
+            </div>
+          </div>
+        </div>
+    
+        <div id="cart-page" style="display: none;">
+          <div class="cart">
+            <h2>Carrito de Compras</h2>
+            <div id="cart-items"></div>
+            <div class="cart-total">Total: $<span id="cart-total">0</span></div>
+            <button class="btn" id="clear-cart">Vaciar Carrito</button>
+            <button class="btn btn-outline" onclick="showProductsPage()">Seguir Comprando</button>
+          </div>
+        </div>
+      </div>
+    
+      <div class="popup" id="popup">
+        <div class="popup-content">
+          <span class="popup-close" onclick="closePopup()">&times;</span>
+          <p id="popup-message"></p>
+        </div>
+      </div>
+    
+    <script>
+    let products = [
+      { id: 1, name: "Lentes Hombre", price: 99.99, image: "img/lentes.jpeg", description: "Lentes de sol para hombre, estilo moderno y elegante. Protección UV 400." },
+      { id: 2, name: "Zapato Formal", price: 149.99, image: "img/zapatos.jpeg", description: "Zapatos formales de cuero para hombre. Ideales para la oficina o eventos especiales." },
+      { id: 3, name: "Libro Texto QA", price: 199.99, image: "img/libro 2.jpeg", description: "Libro de texto sobre Aseguramiento de Calidad en el desarrollo de software. Incluye ejemplos prácticos y estudios de caso." },
+      { id: 4, name: "Reloj Analógico", price: 649.99, image: "img/smartwhatch.jpeg", description: "Reloj analógico clásico con correa de cuero. Movimiento de cuarzo y resistente al agua." }
+    ];
+    let cart = [];
+    
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    const clearCartBtn = document.getElementById('clear-cart');
+    const productsLink = document.getElementById('products-link');
+    const cartLink = document.getElementById('cart-link');
+    const productsPage = document.getElementById('products-page');
+    const cartPage = document.getElementById('cart-page');
+    const productDetailPage = document.getElementById('product-detail-page');
+    const popup = document.getElementById('popup');
+    const popupMessage = document.getElementById('popup-message');
+    
+    clearCartBtn.addEventListener('click', clearCart);
+    productsLink.addEventListener('click', showProductsPage);
+    cartLink.addEventListener('click', showCartPage);
+    
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (!e.target.classList.contains('btn')) {
+          const productName = this.querySelector('h2').textContent;
+          showProductDetail(productName);
+        }
+      });
+    });
+    
+    document.querySelectorAll('.product-card button').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const name = this.getAttribute('data-product-name');
+        const price = parseFloat(this.getAttribute('data-price'));
+        const image = this.getAttribute('data-image');
+        addToCart({ name, price, image, quantity: 1 });
+      });
+    });
+    
+    function addToCart(product) {
+      const existingProduct = cart.find(item => item.name === product.name);
+      if (existingProduct) {
+        existingProduct.quantity += product.quantity;
+      } else {
+        cart.push(product);
+      }
+      updateCart();
+      showPopup(`${product.name} ha sido agregado con éxito`);
+    }
+    
+    function updateCart() {
+      cartItems.innerHTML = '';
+      let total = 0;
+      cart.forEach((product, index) => {
+        const item = document.createElement('div');
+        item.className = 'cart-item';
+        item.innerHTML = `
+          <div class="cart-item-details">
+            <img src="${product.image}" alt="${product.name}" class="cart-item-image">
+            <div>
+              <h3>${product.name}</h3>
+              <p>Cantidad: ${product.quantity}</p>
+            </div>
+          </div>
+          <div>
+            <p>$${(product.price * product.quantity).toFixed(2)}</p>
+            <button class="btn btn-outline" onclick="removeFromCart(${index})">Eliminar</button>
+          </div>
+        `;
+        cartItems.appendChild(item);
+        total += product.price * product.quantity;
+      });
+      cartTotal.textContent = total.toFixed(2);
+    }
+    
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+    
+    function clearCart() {
+      cart = [];
+      updateCart();
+    }
+    
+    function showProductsPage(e) {
+      if (e) e.preventDefault();
+      productsPage.style.display = 'block';
+      cartPage.style.display = 'none';
+      productDetailPage.style.display = 'none';
+    }
+    
+    function showCartPage(e) {
+      if (e) e.preventDefault();
+      productsPage.style.display = 'none';
+      cartPage.style.display = 'block';
+      productDetailPage.style.display = 'none';
+    }
+    
+    function showProductDetail(productName) {
+      const product = products.find(p => p.name === productName);
+      if (product) {
+        document.getElementById('detail-image').src = product.image;
+        document.getElementById('detail-image').alt = product.name;
+        document.getElementById('detail-title').textContent = product.name;
+        document.getElementById('detail-price').textContent = `$${product.price.toFixed(2)}`;
+        document.getElementById('detail-description').textContent = product.description;
+        document.getElementById('quantity').value = 1;
+        
+        productsPage.style.display = 'none';
+        cartPage.style.display = 'none';
+        productDetailPage.style.display = 'block';
+      }
+    }
+    
+    function showPopup(message) {
+      popupMessage.textContent = message;
+      popup.style.display = 'block';
+      setTimeout(closePopup, 3000);
+    }
+    
+    function closePopup() {
+      popup.style.display = 'none';
+    }
+    
+    function decreaseQuantity() {
+      let quantity = parseInt(document.getElementById('quantity').value);
+      if (quantity > 1) {
+        document.getElementById('quantity').value = quantity - 1;
+      }
+    }
+    
+    function increaseQuantity() {
+      let quantity = parseInt(document.getElementById('quantity').value);
+      document.getElementById('quantity').value = quantity + 1;
+    }
+    
+    function addToCartFromDetail() {
+      const productName = document.getElementById('detail-title').textContent;
+      const product = products.find(p => p.name === productName);
+      const quantity = parseInt(document.getElementById('quantity').value);
+      
+      if (product) {
+        addToCart({...product, quantity: quantity});
+      }
+    }
+    
+    updateCart();
+    </script>
+    </body></html>

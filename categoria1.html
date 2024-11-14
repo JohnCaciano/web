@@ -1,0 +1,172 @@
+<html><head><base href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftwareLab: Prueba de Usabilidad</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f8ff;
+      }
+      header {
+        background-color: #4a90e2;
+        color: white;
+        text-align: center;
+        padding: 1em;
+        position: relative;
+      }
+      main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2em;
+      }
+      h2 {
+        color: #4a90e2;
+      }
+      button {
+        background-color: #4a90e2;
+        color: white;
+        border: none;
+        padding: 0.5em 1em;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #3a7bc8;
+      }
+      #home-button {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: white;
+        color: #4a90e2;
+      }
+      #home-button:hover {
+        background-color: #e6f2ff;
+      }
+      #usability-test {
+        border: 1px solid #4a90e2;
+        border-radius: 8px;
+        padding: 20px;
+        margin-top: 20px;
+      }
+      #task-description {
+        background-color: #e6f2ff;
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+      }
+      #feedback-form {
+        display: none;
+        margin-top: 20px;
+      }
+      #feedback-form textarea {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+      }
+    </style>
+    </head>
+    <body>
+      <header>
+        <button id="home-button" onclick="location.href='index.html'">Inicio</button>
+        <h1>Prueba de Usabilidad</h1>
+      </header>
+      <main>
+        <h2>Ejemplo 1  Mercado QA</h2>
+        <p>En esta actividad, evaluaremos la usabilidad de una interfaz de usuario de un clon de MercadoLibre. Tu tarea será realizar algunas acciones específicas y luego proporcionar retroalimentación sobre tu experiencia.</p>
+        
+        <div id="usability-test">
+          <h3>Tarea de Usabilidad</h3>
+          <div id="task-description">
+            <p>Por favor, realiza las siguientes acciones en la interfaz proporcionada:</p>
+            <ol>
+              <li>Busca un producto específico (por ejemplo, "Libro Texto QA")</li>
+              <li>Agrega el producto al carrito</li>
+              <li>Navega al carrito de compras</li>
+              <li>Intenta completar el proceso de compra</li>
+            </ol>
+          </div>
+          <!--  <button onclick="window.location.href='categoria5.html'">Comenzar Prueba</button> 
+          <button onclick="location.href='categoria5.html'">Comenzar Prueba</button>-->
+          <button onclick="window.open('categoria5.html', '_self')">Comenzar Prueba</button>
+        </div>
+    
+        <div id="interface-container" style="display: none;">
+          <!-- Aquí se insertará el código de la interfaz -->
+        </div>
+    
+        <div id="feedback-form" style="display: none;">
+          <h3>Retroalimentación</h3>
+          <p>Por favor, comparte tus observaciones sobre la usabilidad de la interfaz:</p>
+          <textarea id="user-feedback" placeholder="Escribe tus comentarios aquí..."></textarea>
+          <button onclick="submitFeedback()">Enviar Retroalimentación</button>
+        </div>
+      </main>
+    `
+
+
+    <main>
+      <h2>Ejemplo  2   Netflix QA</h2>
+      <p>En esta actividad, evaluaremos la usabilidad de una interfaz de usuario en una plataforma de series y peliculas. Tu tarea será realizar algunas acciones específicas y luego proporcionar retroalimentación sobre tu experiencia.</p>
+      
+      <div id="usability-test">
+        <h3>Tarea de Usabilidad</h3>
+        <div id="task-description">
+          <p>Por favor, realiza las siguientes acciones en la interfaz proporcionada:</p>
+          <ol>
+            <li>Uso del menú de navegación:</li>
+            <li>Regresar a una página anterior</li>
+            <li>Acceder a detalles adicionales de una película o serie</li>
+            <li>Iniciar reproducción de un video</li>
+          </ol>
+        </div>
+        <!--  <button onclick="window.location.href='categoria5.html'">Comenzar Prueba</button> 
+        <button onclick="location.href='categoria5.html'">Comenzar Prueba</button>-->
+        <button onclick="window.open('NetflixQA.html', '_self')">Comenzar Prueba</button>
+      </div>
+
+      <h2>Ejemplo  3 PayCenter  QA  </h2>
+      <p>En esta actividad, evaluaremos la usabilidad de una interfaz de usuario en una plataforma de series y peliculas. Tu tarea será realizar algunas acciones específicas y luego proporcionar retroalimentación sobre tu experiencia.</p>
+      
+      <div id="usability-test">
+        <h3>Tarea de Usabilidad</h3>
+        <div id="task-description">
+          <p>Por favor, realiza las siguientes acciones en la interfaz proporcionada:</p>
+          <ol>
+            <li>funcionalidad:</li>
+            <li>Regresar a una página anterior</li>
+            <li>Usuario :adminqa    Contraseña :16102024   </li>
+            <li>Descargar  Acta del Requerimiento  - <a href="GB-FO-15 Requirement Account (Lab QAl) TCS0001-REQ-001 V1.1 .docx" download="GB-FO-15_Requirement.pdf">Descargar archivo</a></li>
+
+          </ol>
+        </div>
+        <!--  <button onclick="window.location.href='categoria5.html'">Comenzar Prueba</button> 
+        <button onclick="location.href='categoria5.html'">Comenzar Prueba</button>-->
+        <button onclick="window.open('PayCenterQA.html', '_self')">Comenzar Prueba</button>
+      </div>
+
+
+
+
+  
+      <div id="interface-container" style="display: none;">
+        <!-- Aquí se insertará el código de la interfaz -->
+      </div>
+  
+      <div id="feedback-form" style="display: none;">
+        <h3>Retroalimentación</h3>
+        <p>Por favor, comparte tus observaciones sobre la usabilidad de la interfaz:</p>
+        <textarea id="user-feedback" placeholder="Escribe tus comentarios aquí..."></textarea>
+        <button onclick="submitFeedback()">Enviar Retroalimentación</button>
+      </div>
+    </main>
+      <script>
+        function goHome() {
+          window.location.href = '/';
+        }
+    
+       
+        

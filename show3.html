@@ -1,0 +1,233 @@
+<html><head>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midnight Mysteries - NetflixQA</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  .logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .back-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .content {
+    padding: 5rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .show-details {
+    display: flex;
+    gap: 2rem;
+  }
+  .show-poster {
+    flex: 0 0 300px;
+  }
+  .show-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .show-info {
+    flex: 1;
+  }
+  .show-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .show-meta {
+    font-size: 1rem;
+    color: #999;
+    margin-bottom: 1rem;
+  }
+  .show-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .play-button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .play-button:hover {
+    background-color: #f40612;
+  }
+  .episode-list {
+    margin-top: 2rem;
+  }
+  .episode {
+    background-color: #333;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .episode:hover {
+    background-color: #444;
+  }
+  .episode-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  .episode-description {
+    font-size: 0.9rem;
+    color: #bbb;
+  }
+  @media (max-width: 768px) {
+    .show-details {
+      flex-direction: column;
+    }
+    .show-poster {
+      flex: 0 0 auto;
+      margin-bottom: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="location.href='NetflixQA.html'" style="cursor: pointer;">NetflixQA</div>
+    <button class="back-button" onclick="history.back()">Back</button>
+  </nav>
+
+  <main class="content">
+    <div class="show-details">
+      <div class="show-poster">
+        <img src="img/Midnight Mysteries TV show.jpg" alt="Midnight Mysteries TV show poster">
+      </div>
+      <div class="show-info">
+        <h1 class="show-title">Midnight Mysteries</h1>
+        <div class="show-meta">2023 | TV-MA | 2 Seasons | Mystery</div>
+        <p class="show-description">
+          Step into the foggy streets of Victorian London, where the line between the natural and supernatural blurs. Follow the brilliant yet troubled Detective Evelyn Blackwood as she unravels a series of perplexing cases that defy rational explanation. With her trusted partner, the skeptical Dr. James Harlow, they navigate a world where science and the occult collide, facing off against dark forces that threaten the very fabric of reality.
+        </p>
+        <button class="play-button" onclick="playShow()">Play</button>
+      </div>
+    </div>
+
+    <div class="episode-list">
+      <h2>Season 2 Episodes</h2>
+      <div class="episode" onclick="playEpisode(1)">
+        <div class="episode-title">1. The Whispering Shadows</div>
+        <div class="episode-description">A series of disappearances leads Blackwood and Harlow to an abandoned theater with a dark history.</div>
+      </div>
+      <div class="episode" onclick="playEpisode(2)">
+        <div class="episode-title">2. Echoes of the Damned</div>
+        <div class="episode-description">The detectives investigate a haunted asylum where the patients seem to be communicating with the dead.</div>
+      </div>
+      <div class="episode" onclick="playEpisode(3)">
+        <div class="episode-title">3. The Clockwork Conspiracy</div>
+        <div class="episode-description">A string of murders points to an underground society obsessed with mechanical augmentation.</div>
+      </div>
+      <div class="episode" onclick="playEpisode(4)">
+        <div class="episode-title">4. Veil of Deception</div>
+        <div class="episode-description">Blackwood's past comes back to haunt her as she faces a nemesis she thought long dead.</div>
+      </div>
+      <div class="episode" onclick="playEpisode(5)">
+        <div class="episode-title">5. The Alchemist's Riddle</div>
+        <div class="episode-description">A mysterious alchemist challenges the detectives with a series of deadly puzzles.</div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function playShow() {
+      // Intentional error: sometimes the play button doesn't work
+      if (Math.random() < 0.3) {
+        console.log("Play button failed silently");
+      } else {
+        alert("Playing Midnight Mysteries from the beginning");
+      }
+    }
+
+    function playEpisode(episodeNumber) {
+      // Intentional error: random loading delays
+      const delay = Math.random() < 0.5 ? 100 : 3000 + Math.random() * 2000;
+      setTimeout(() => {
+        alert(`Playing Episode ${episodeNumber}`);
+      }, delay);
+    }
+
+    // Intentional error: inconsistent hover effects
+    const episodes = document.querySelectorAll('.episode');
+    episodes.forEach(episode => {
+      episode.addEventListener('mouseenter', function() {
+        if (Math.random() < 0.3) {
+          this.style.backgroundColor = '#555';
+        }
+      });
+      episode.addEventListener('mouseleave', function() {
+        this.style.backgroundColor = '';
+      });
+    });
+
+    // Intentional error: occasionally hide episode descriptions
+    window.addEventListener('load', function() {
+      const descriptions = document.querySelectorAll('.episode-description');
+      descriptions.forEach(desc => {
+        if (Math.random() < 0.2) {
+          desc.style.display = 'none';
+        }
+      });
+    });
+
+    // Intentional error: play button sometimes changes text
+    const playButton = document.querySelector('.play-button');
+    playButton.addEventListener('mouseover', function() {
+      if (Math.random() < 0.2) {
+        this.textContent = 'Watch Now';
+      }
+    });
+    playButton.addEventListener('mouseout', function() {
+      this.textContent = 'Play';
+    });
+
+    // Intentional error: show poster occasionally doesn't load
+    window.addEventListener('load', function() {
+      if (Math.random() < 0.2) {
+        document.querySelector('.show-poster img').src = 'broken-image-url.jpg';
+      }
+    });
+
+    // Intentional error: back button sometimes doesn't work
+    document.querySelector('.back-button').addEventListener('click', function(e) {
+      if (Math.random() < 0.3) {
+        e.preventDefault();
+        console.log("Back button failed silently");
+      }
+    });
+  </script>
+</body>
+</html>
